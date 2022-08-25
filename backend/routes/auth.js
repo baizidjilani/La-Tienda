@@ -11,7 +11,6 @@ router.post("/register", async (req, res) => {
         name: req.body.name,
         username: req.body.username,
         email: req.body.email,
-        // mobileno: req.body.mobileno,
         password: CryptoJS.AES.encrypt(
             req.body.password, process.env.PASS_SEC
         ).toString(),
@@ -35,7 +34,6 @@ router.post('/login', async (req, res) => {
     try {
         const user = await User.findOne({ username: req.body.username });
         !user && res.status(401).json("Wrong Username");
-        // !user && res.status("Wrong Username");
 
 
         const hashedPassword = CryptoJS.AES.decrypt(user.password, process.env.PASS_SEC);
@@ -69,8 +67,8 @@ router.post("/supplier/register", async (req, res) => {
     const newSupplier = new Supplier({
         name: req.body.name,
         username: req.body.username,
+        shopname: req.body.shopname,
         email: req.body.email,
-        // mobileno: req.body.mobileno,
         password: CryptoJS.AES.encrypt(
             req.body.password, process.env.PASS_SEC
         ).toString(),
