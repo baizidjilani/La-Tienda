@@ -25,7 +25,7 @@ export default function OpenBankAccount() {
     });
     result = await result.json();
     console.warn(result);
-    navigate('/')
+    navigate('/logout')
   }
   return (
     <div>

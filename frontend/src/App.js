@@ -17,6 +17,11 @@ import PrivateComponent from './components/PrivateComponent';
 import Logout from './components/Logout';
 import AddProduct from './components/AddProduct';
 import Update from './components/Update';
+import AdminDashboard from './components/AdminDashboard';
+import AdminUsers from './components/AdminUsers';
+import AdminSellers from './components/AdminSellers';
+import AdminProducts from './components/AdminProducts';
+import AdminOrders from './components/AdminOrders';
 
 function App() {
   return (
@@ -31,7 +36,13 @@ function App() {
       <Route path = '/logout' element = {<Logout/>} />
       <Route path = '/openbankaccount' element = {<OpenBankAccount/>} />
       <Route path = '/login' element = {<Login/>} />
-      <Route path = '/admin' element = {<Admin/>} />
+      <Route path = '/admin' element = {<Admin/>} >
+        <Route path='dashboard' element = {<AdminDashboard />} />
+        <Route path='products' element = {<AdminProducts />} />
+        <Route path='orders' element = {<AdminOrders />} />
+        <Route path='users' element = {<AdminUsers />} />
+        <Route path='sellers' element = {<AdminSellers />} />
+      </Route>
       <Route path = '/orderconfirmation' element = {<OrderConfirmation/>} />
       <Route path = '/seller' element = {<AddProduct/>} />
       <Route path = '/update/:id' element = {<Update/>} />
