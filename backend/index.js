@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const userRoute = require('./routes/user'); 
+const supplierRoute = require('./routes/supplier');
 const authRoute = require('./routes/auth'); 
 const userBankInfoRoute = require('./routes/userBankInfo');
 const productRoute = require('./routes/supplierProduct');
@@ -28,6 +29,7 @@ app.use(cors());
 
 app.use('/api/auth/', authRoute);
 app.use('/api/users/', userRoute); 
+app.use('/api/suppliers/', supplierRoute);
 app.use('/api/products', productRoute);
 app.use('/api/userbankinfos/', userBankInfoRoute);
 app.use('/api/cart/', cartRoute);
@@ -35,6 +37,7 @@ app.use('/api/userorders/', orderRoute);
 app.use('/api/bank/', bankCardHolderRoute);
 app.use('/api/transaction', transactionRoute);
 app.use('/api/userbalance/', userBalanceRoute);
+
 
 app.listen(process.env.Port || 5000, ()=>{
     console.log('backend program running'); 
