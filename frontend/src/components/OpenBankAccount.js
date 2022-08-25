@@ -7,9 +7,15 @@ export default function OpenBankAccount() {
   const [cardNumber,setcardNumber] = useState("");
   const [secretNumber,setSecretNumber] = useState("");
   const [balance,setBalance] = useState("");
+  const [error, setError]  = React.useState(false);
   const navigate = useNavigate();
   const collectBankInformation = async()=>{
     console.warn(cardHolderName,email, cardNumber,secretNumber,balance);
+    if(!cardHolderName || !email || !cardNumber || !secretNumber || !balance)
+    {
+        setError(true);
+        return false;
+    }
     let result  = await fetch("http://localhost:5000/api/bank/openaccount", {
       method: 'post',
       body: JSON.stringify({cardHolderName,email,cardNumber,secretNumber,balance}),
@@ -37,7 +43,7 @@ export default function OpenBankAccount() {
                 <div className="card" style={{ borderRadius: "15px" }}>
                   <div className="card-body p-5">
                     <h2 className="text-uppercase text-center mb-5">
-                      Create an account
+                      Create Bank Account
                     </h2>
 
                     <form>
@@ -46,12 +52,11 @@ export default function OpenBankAccount() {
                           type="text"
                           id="form3Example1cg"
                           className="form-control form-control-lg"
+                          placeholder="Name"
                           value={cardHolderName} 
                           onChange = {(e) => setName(e.target.value)}
                         />
-                        <label className="form-label" htmlFor="form3Example1cg">
-                          Your Name
-                        </label>
+                        {error && !cardHolderName && <span className="invalid_block">Enter Valid Card Holder Name </span>}
                       </div>
 
                       <div className="form-outline mb-4">
@@ -59,12 +64,11 @@ export default function OpenBankAccount() {
                           type="text"
                           id="form3Example1cg"
                           className="form-control form-control-lg"
+                          placeholder="Email"
                           value={email} 
                           onChange = {(e) => setEmail(e.target.value)}
                         />
-                        <label className="form-label" htmlFor="form3Example1cg">
-                          Email
-                        </label>
+                        {error && !email && <span className="invalid_block">Enter Valid Email </span>}
                       </div>
 
                       <div className="form-outline mb-4">
@@ -72,12 +76,11 @@ export default function OpenBankAccount() {
                           type="text"
                           id="form3Example1cg"
                           className="form-control form-control-lg"
+                          placeholder="Card Number"
                           value={cardNumber} 
                           onChange = {(e) => setcardNumber(e.target.value)}
                         />
-                        <label className="form-label" htmlFor="form3Example1cg">
-                          Card Number
-                        </label>
+                        {error && !cardNumber && <span className="invalid_block">Enter Valid Card Number </span>}
                       </div>
 
                       <div className="form-outline mb-4">
@@ -85,49 +88,28 @@ export default function OpenBankAccount() {
                           type="text"
                           id="form3Example1cg"
                           className="form-control form-control-lg"
+                          placeholder="Secret Number"
                           value={secretNumber} 
                           onChange = {(e) => setSecretNumber(e.target.value)}
                         />
-                        <label className="form-label" htmlFor="form3Example1cg">
-                          Secret Number
-                        </label>
+                        {error && !secretNumber && <span className="invalid_block">Enter Valid Secret Number </span>}
                       </div>
 
                       <div className="form-outline mb-4">
                         <input
                           type="text"
                           id="form3Example1cg"
+                          placeholder="Initial Depsit"
                           className="form-control form-control-lg"
                           value={balance} 
                           onChange = {(e) => setBalance(e.target.value)}
                         />
-                        <label className="form-label" htmlFor="form3Example1cg">
-                          Initial Deposit
-                        </label>
+                        {error && !secretNumber && <span className="invalid_block">Enter Valid Initial Deposit</span>}
                       </div>
-
-                      <div className="form-check d-flex justify-content-center mb-5">
-                        <input
-                          className="form-check-input me-2"
-                          type="checkbox"
-                          value=""
-                          id="form2Example3cg"
-                        />
-                        <label
-                          className="form-check-label"
-                          htmlFor="form2Example3g"
-                        >
-                          I agree all statements in{" "}
-                          <a href="/" className="text-body">
-                            <u>Terms of service</u>
-                          </a>
-                        </label>
-                      </div>
-
                       <div className="d-flex justify-content-center">
                         <button
                           type="button"
-                          className="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                          className="btn btn-primary btn-lg"
                           onClick={collectBankInformation}
                         >
                           Submit
