@@ -29,6 +29,7 @@ export default function Product() {
     if(result)
     {
         alert("Result is deleted.")
+        getProducts();
     }
   };
   
@@ -43,6 +44,7 @@ export default function Product() {
             <li>{item.desc}</li>
             <li>{item.price}</li>
             <li><button onClick={()=>deleteProduct(item._id)}>Detele</button></li>
+            <Link to={"/update/"+item._id}>Update</Link>
             </ul>)
         }
     </div>

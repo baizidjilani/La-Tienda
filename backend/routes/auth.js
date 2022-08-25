@@ -5,6 +5,7 @@ const jwt = require("jsonwebtoken");
 const router = require("express").Router();
 
 //User Register
+
 router.post("/register", async (req, res) => {
     const newUser = new User({
         name: req.body.name,
@@ -29,11 +30,13 @@ router.post("/register", async (req, res) => {
 
 
 //User Login
+
 router.post('/login', async (req, res) => {
     try {
         const user = await User.findOne({ username: req.body.username });
         !user && res.status(401).json("Wrong Username");
         // !user && res.status("Wrong Username");
+
 
         const hashedPassword = CryptoJS.AES.decrypt(user.password, process.env.PASS_SEC);
         const OriginalPassword = hashedPassword.toString(CryptoJS.enc.Utf8);
