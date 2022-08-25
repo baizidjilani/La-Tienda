@@ -16,6 +16,10 @@ import OrderConfirmation from './components/OrderConfirmation';
 import PrivateComponent from './components/PrivateComponent';
 import Logout from './components/Logout';
 import AddProduct from './components/AddProduct';
+<<<<<<< HEAD
+=======
+import Update from './components/Update';
+>>>>>>> master
 
 function App() {
   return (
@@ -33,6 +37,10 @@ function App() {
       <Route path = '/admin' element = {<Admin/>} />
       <Route path = '/orderconfirmation' element = {<OrderConfirmation/>} />
       <Route path = '/seller' element = {<AddProduct/>} />
+<<<<<<< HEAD
+=======
+      <Route path = '/update/:id' element = {<Update/>} />
+>>>>>>> master
       <Route element = {<PrivateComponent/>}>
       <Route path = '/profile' element = {<UserProfile/>} />
       <Route path = '/checkout' element = {<Checkout/>} />
