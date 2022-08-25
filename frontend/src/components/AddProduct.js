@@ -88,6 +88,10 @@ export default function AddProduct() {
                           value={img} 
                           onChange = {(e) => setImage(e.target.value)}
                         />
+                        <div class="mb-3">
+                            <label htmlFor="formFile" class="form-label">Input File</label>
+                            <input class="form-control" type="file" id="formFile"/>
+                        </div>
                         {error && !img && <span className="invalid_block">Enter Valid Image </span>}
                       </div>
 

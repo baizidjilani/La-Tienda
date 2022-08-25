@@ -7,6 +7,7 @@ export default function Signup() {
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   const [confirmPassword,setConfirmPassword] = useState("");
+  const [error, setError]  = React.useState(false);
   const navigate = useNavigate();
   useEffect(()=>{
     const auth = localStorage.getItem('user');
@@ -14,6 +15,11 @@ export default function Signup() {
   })
   const collectData = async()=>{
     console.warn(name,username,email, password,confirmPassword);
+    if(!name || !username || !email || !password || !confirmPassword)
+    {
+        setError(true);
+        return false;
+    }
     let result  = await fetch("http://localhost:5000/api/auth/register", {
       method: 'post',
       body: JSON.stringify({name,username,email,password,confirmPassword}),
@@ -48,12 +54,11 @@ export default function Signup() {
                               type="text"
                               id="form3Example1c"
                               className="form-control"
+                              placeholder="Name"
                               value={name} 
                               onChange = {(e) => setName(e.target.value)}
                             />
-                            <label className="form-label" htmlFor="form3Example1c">
-                              Your Name
-                            </label>
+                            {error && !name && <span className="invalid_block">Enter Valid Name </span>}
                           </div>
                         </div>
 
@@ -64,12 +69,11 @@ export default function Signup() {
                               type="text"
                               id="form3Example1c"
                               className="form-control"
+                              placeholder="User Name"
                               value={username} 
                               onChange = {(e) => setusername(e.target.value)}
                             />
-                            <label className="form-label" htmlFor="form3Example1c">
-                              User Name
-                            </label>
+                            {error && !username && <span className="invalid_block">Enter Valid Username </span>}
                           </div>
                         </div>
 
@@ -80,12 +84,11 @@ export default function Signup() {
                               type="email"
                               id="form3Example3c"
                               className="form-control"
+                              placeholder="Email"
                               value={email} 
                               onChange = {(e) => setEmail(e.target.value)}
                             />
-                            <label className="form-label" htmlFor="form3Example3c">
-                              Your Email
-                            </label>
+                            {error && !email && <span className="invalid_block">Enter Valid Email </span>}
                           </div>
                         </div>
 
@@ -96,12 +99,11 @@ export default function Signup() {
                               type="password"
                               id="form3Example4d"
                               className="form-control"
+                              placeholder="Password"
                               value={password} 
                               onChange = {(e) => setPassword(e.target.value)}
                             />
-                            <label className="form-label" htmlFor="form3Example4c">
-                              Password
-                            </label>
+                            {error && !password && <span className="invalid_block">Enter Valid Password </span>}
                           </div>
                         </div>
 
@@ -112,16 +114,15 @@ export default function Signup() {
                               type="password"
                               id="form3Example4cd"
                               className="form-control"
+                              placeholder="Confirm Password"
                               value={confirmPassword} 
                               onChange = {(e) => setConfirmPassword(e.target.value)}
                             />
-                            <label className="form-label" htmlFor="form3Example4cd">
-                              Repeat your password
-                            </label>
+                            {error && !confirmPassword && <span className="invalid_block">Your Password is Incorrect </span>}
                           </div>
                         </div>
 
-                        <div className="form-check d-flex justify-content-center mb-5">
+                        {/* <div className="form-check d-flex justify-content-center mb-5">
                           <input
                             className="form-check-input me-2"
                             type="checkbox"
@@ -135,7 +136,7 @@ export default function Signup() {
                             I agree all statements in{" "}
                             <a href="#!">Terms of service</a>
                           </label>
-                        </div>
+                        </div> */}
 
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <button
