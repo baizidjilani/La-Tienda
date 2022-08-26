@@ -52,11 +52,7 @@ export default function Products() {
                     id="product-card"
                   >
                     <Link to={`/${items._id}`}>
-                      <img
-                        src="./images/watch.jpg"
-                        className="card-img-top"
-                        alt={items.img}
-                      />
+                       <img src={`http://localhost:5000/uploads/${items.img}`} className="card-img-top" alt={items.img} />
                     </Link>
                     <div className="card-body">
                       <h5 className="card-title fw-bolder text-dark">
@@ -72,6 +68,7 @@ export default function Products() {
                       >
                         Add to cart
                       </button>
+
                     </div>
                   </div>
                 </div>

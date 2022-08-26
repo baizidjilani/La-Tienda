@@ -6,8 +6,6 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Transaction from './components/Tansaction';
 import Signup from './components/Signup';
 import Login from './components/Login';
-import Product2 from './components/Product2';
-import ProductDetails from './components/ProductDetails';
 import UserProfile from './components/UserProfile';
 import OpenBankAccount from './components/OpenBankAccount';
 import Navbar2 from './components/Navbar2';
@@ -71,7 +69,6 @@ function App() {
       <Route element = {<PrivateComponent/>}>
       <Route path = '/profile' element = {<UserProfile/>} />
       <Route path = '/checkout' element = {<Checkout/>} />
-      <Route path = '/productdetails/:id' element = {<ProductDetails/>} />
       <Route path = '/transaction' element = {<Checkout/>} />
       </Route>
     </Routes>

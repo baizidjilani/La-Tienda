@@ -1,13 +1,45 @@
 // const req = require("express/lib/request");
+const multer = require('multer');
 const Product = require("../models/SupplierProduct");
 const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndSupplier, verifyTokenAndAdmin } = require("./verifyToken");
 
 const router = require("express").Router();
 
 
+const storage = multer.diskStorage({
+    //destination for files
+    destination: function (req, file, callback) {
+      callback(null, './uploads/');
+    },
+  
+    //add back the extension
+    filename: function (req, file, callback) {
+      callback(null, Date.now() + file.originalname);
+    },
+  });
+
+  const upload = multer({
+    storage: storage,
+    limits: {
+        fieldSize: 1024 * 1024 * 3,
+    },
+  });
+  
+
 //Add Product
-router.post("/", async (req, res) => {
-    const newProduct = new Product(req.body);
+router.post("/", upload.single('img'), async (req, res) => {
+    console.log(req.file);
+
+    const newProduct = new Product({
+        title: req.body.title,
+        desc: req.body.desc,
+        img: req.file.filename,
+        categories: req.body.categories,
+        size: req.body.size,
+        color: req.body.color,
+        price: req.body.price,
+        stock: req.body.stock
+    });
 
     try {
         const savedProduct = await newProduct.save();
