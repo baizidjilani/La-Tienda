@@ -38,8 +38,8 @@ export default function Signup() {
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
             <div className="col-lg-12 col-xl-11">
-              <div className="card text-black" style={{ borderRadius: "25px" }}>
-                <div className="card-body p-md-5">
+              <div className="card text-black my-4" style={{ borderRadius: "25px"}}>
+                <div className="card-body">
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
@@ -135,10 +135,10 @@ export default function Signup() {
                     </div>
                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                       <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                        src="./images/7_unsplash.jpg"
                         alt="login form"
                         className="img-fluid"
-                        style={{ borderRadius: "1rem 0 0 1rem" }}
+                        style={{ borderRadius: "1rem 1rem 1rem 1rem",  "width": "50%", margin: "0 auto"}}
                       />
                     </div>
                   </div>
