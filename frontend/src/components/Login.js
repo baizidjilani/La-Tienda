@@ -40,7 +40,7 @@ export default function SellerLogin() {
   <div className="container py-5 h-100">
     <div className="row d-flex justify-content-center align-items-center h-100">
       <div className="col col-xl-10">
-        <div className="card" style={{borderRadius: "1rem", color: "#9A616D !important" }}>
+        <div className="card" style={{borderRadius: "1rem" }}>
           <div className="row g-0">
             <div className="col-md-6 col-lg-5 d-none d-md-block">
               <img src="./images/8_unsplash.jpg"

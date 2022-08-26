@@ -2,31 +2,35 @@ import React, {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Seller() {
-  const [cardHolderName,setName] = useState("");
+  const [name,setName] = useState("");
+  const [username,setUserName] = useState("");
   const [email,setEmail] = useState("");
-  const [cardNumber,setcardNumber] = useState("");
-  const [secretNumber,setSecretNumber] = useState("");
   const [balance,setBalance] = useState("");
+  const params = useParams();
+  
   const [error, setError]  = React.useState(false);
   const navigate = useNavigate();
-  const collectBankInformation = async()=>{
-    console.warn(cardHolderName,email, cardNumber,secretNumber,balance);
-    if(!cardHolderName || !email || !cardNumber || !secretNumber || !balance)
-    {
-        setError(true);
-        return false;
-    }
-    let result  = await fetch("http://localhost:5000/api/bank/openaccount", {
-      method: 'post',
-      body: JSON.stringify({cardHolderName,email,cardNumber,secretNumber,balance}),
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    result = await result.json();
-    console.warn(result);
-    navigate('/login')
-  }
+
+  useEffect(()=>{
+    fetchData();
+    fetchBalance();
+  }, [])
+    
+    const fetchData = async () => {
+        console.log(params)
+        const res = await fetch(`http://localhost:5000/api/suppliers/find/${params.id}`);
+        const data = await res.json();
+        console.log(data)
+        setName(data.name);
+        setUserName(data.username);
+        setEmail(data.email);
+    };
+    const fetchBalance = async () => {
+        const res_bank = await fetch(`http://localhost:5000/api/userbalance/${params.id}`);
+        const data_bank = await res_bank.json();
+        console.log(data_bank);
+        setBalance(data_bank);
+    };
   return (
     <div>
       <section
