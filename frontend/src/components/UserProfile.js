@@ -31,34 +31,6 @@ export default function UserProfile() {
         const data_bank = await res_bank.json();
         setBalance(data_bank.balance);
     };
-
-//   const getUser = async(id)=>{
-//     let result = await fetch(`http://localhost:5000/api/products/${id}`);
-//     result = await result.json();
-//   };
-//   useEffect(()=>{
-//     const auth = localStorage.getItem('user');
-//     if (auth){navigate('/')}
-//   })
-//   const collectData = async()=>{
-//     console.warn(name,username,email, password,confirmPassword);
-//     if(!name || !username || !email || !password || !confirmPassword)
-//     {
-//         setError(true);
-//         return false;
-//     }
-//     let result  = await fetch("http://localhost:5000/api/auth/register", {
-//       method: 'post',
-//       body: JSON.stringify({name,username,email,password,confirmPassword}),
-//       headers: {
-//         'Content-Type': 'application/json'
-//       }
-//     });
-//     result = await result.json();
-//     console.warn(result);
-//     localStorage.setItem("user",JSON.stringify(result))
-//     navigate('/openbankaccount')
-//   }
   return (
     <div>
       <section
