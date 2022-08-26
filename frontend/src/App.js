@@ -26,6 +26,8 @@ import AdminProducts from './components/AdminProducts';
 import AdminOrders from './components/AdminOrders';
 import SellerSignup from './components/SellerSignup';
 import SellerProfile from './components/SellerProfile';
+import Products from './components/Products'
+import ProductDescription from './components/ProductDescription'
 
 function App() {
   return (
@@ -34,8 +36,13 @@ function App() {
 
     <Navbar2 />
     <Routes>
+
+    <Route path='/' >
+            <Route index element={<Products />} />
+            <Route path=':id' element={<ProductDescription />} />
+      </Route>
       <Route element = {<PrivateComponent/>}></Route>
-      <Route path = '/' element = {<Product2/>} />
+      {/* <Route path = '/' element = {<Product2/>} /> */}
       <Route path = '/signup' element = {<Signup/>} />
       <Route path = '/logout' element = {<Logout/>} />
       <Route path = '/openbankaccount' element = {<OpenBankAccount/>} />
@@ -62,7 +69,7 @@ function App() {
       <Route path = '/profile' element = {<UserProfile/>} />
       <Route path = '/checkout' element = {<Checkout/>} />
       <Route path = '/productdetails/:id' element = {<ProductDetails/>} />
-      <Route path = '/transaction' element = {<Transaction/>} />
+      <Route path = '/transaction' element = {<Checkout/>} />
       </Route>
     </Routes>
     </div>

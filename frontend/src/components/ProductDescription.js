@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import './productDescription.css';
 
 export default function ProductDescription() {
     const params = useParams();
@@ -20,7 +19,7 @@ export default function ProductDescription() {
            <div className="container">
             <div className="row">
                 <div className="col-md-6">
-                    <img src="./assets/images/watch.jpg" alt="image" className="w-100"/>
+                    <img src="./images/watch.jpg" alt="image" className="w-100"/>
                 </div>
                 <div className="col-md-6">
                     <div>

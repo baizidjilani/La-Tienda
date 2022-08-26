@@ -28,7 +28,7 @@ export default function Products() {
                                     <div className="col" key={items._id}>
                                         <Link to = {`/${items._id}`}>
                                             <div className="card h-100" style={{ 'padding': '0px' }} id ='product-card'>
-                                                <img src='./assets/images/watch.jpg' className="card-img-top" alt={items.img} />
+                                                <img src='./images/watch.jpg' className="card-img-top" alt={items.img} />
                                                 <div className="card-body">
                                                     <h5 className="card-title fw-bolder text-dark">{items.title}</h5>
                                                     <p className="card-text fw-bold text-dark">Price : $ {items.price}</p>
