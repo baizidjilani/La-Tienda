@@ -14,8 +14,8 @@ export default function UserProfile() {
 
   useEffect(()=>{
     fetchData();
-    fetchBalnce();
-  })
+    fetchBalance();
+  }, [])
     
     const fetchData = async () => {
         console.log(params)
@@ -26,11 +26,11 @@ export default function UserProfile() {
         setUserName(data.username);
         setEmail(data.email);
     };
-    const fetchBalnce = async () => {
+    const fetchBalance = async () => {
         const res_bank = await fetch(`http://localhost:5000/api/userbalance/${params.id}`);
-        console.log(res_bank)
         const data_bank = await res_bank.json();
-        setBalance(data_bank.balance);
+        console.log(data_bank);
+        setBalance(data_bank);
     };
   return (
     <div>
