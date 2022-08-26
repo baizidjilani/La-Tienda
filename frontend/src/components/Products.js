@@ -59,7 +59,7 @@ export default function Products() {
                         {items.title}
                       </h5>
                       <p className="card-text fw-bold text-dark">
-                        Price : $ {items._id}
+                        Price : $ {items.price}
                       </p>
                       <button
                         type="button"

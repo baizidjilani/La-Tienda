@@ -67,7 +67,7 @@ function App() {
       <Route path = '/orderconfirmation' element = {<OrderConfirmation/>} />
       <Route path = '/update/:id' element = {<Update/>} />
       <Route element = {<PrivateComponent/>}>
-      <Route path = '/profile' element = {<UserProfile/>} />
+      <Route path = '/profile/:id' element = {<UserProfile/>} />
       <Route path = '/checkout' element = {<Checkout/>} />
       <Route path = '/transaction' element = {<Checkout/>} />
       </Route>

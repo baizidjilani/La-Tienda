@@ -14,51 +14,24 @@ export default function UserProfile() {
 
   useEffect(()=>{
     fetchData();
-    // fetchBalnce();
+    fetchBalnce();
   })
     
     const fetchData = async () => {
         console.log(params)
         const res = await fetch(`http://localhost:5000/api/users/find/${params.id}`);
         const data = await res.json();
-        console.log(params)
+        console.log(data)
         setName(data.name);
         setUserName(data.username);
         setEmail(data.email);
     };
     const fetchBalnce = async () => {
         const res_bank = await fetch(`http://localhost:5000/api/userbalance/${params.id}`);
+        console.log(res_bank)
         const data_bank = await res_bank.json();
         setBalance(data_bank.balance);
     };
-
-//   const getUser = async(id)=>{
-//     let result = await fetch(`http://localhost:5000/api/products/${id}`);
-//     result = await result.json();
-//   };
-//   useEffect(()=>{
-//     const auth = localStorage.getItem('user');
-//     if (auth){navigate('/')}
-//   })
-//   const collectData = async()=>{
-//     console.warn(name,username,email, password,confirmPassword);
-//     if(!name || !username || !email || !password || !confirmPassword)
-//     {
-//         setError(true);
-//         return false;
-//     }
-//     let result  = await fetch("http://localhost:5000/api/auth/register", {
-//       method: 'post',
-//       body: JSON.stringify({name,username,email,password,confirmPassword}),
-//       headers: {
-//         'Content-Type': 'application/json'
-//       }
-//     });
-//     result = await result.json();
-//     console.warn(result);
-//     localStorage.setItem("user",JSON.stringify(result))
-//     navigate('/openbankaccount')
-//   }
   return (
     <div>
       <section
@@ -78,7 +51,7 @@ export default function UserProfile() {
                       User Profile
                     </h2>
 
-                    <form>
+                    <form className="text-start">
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
                         Name: {name} 
