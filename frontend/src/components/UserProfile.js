@@ -1,130 +1,115 @@
-import React from 'react'
+import React, {useEffect, useState} from "react";
+import { Link, useNavigate,useParams } from "react-router-dom";
 
 
 export default function UserProfile() {
+  const [name,setName] = useState("");
+  const [username,setUserName] = useState("");
+  const [email,setEmail] = useState("");
+  const [balance,setBalance] = useState("");
+  const params = useParams();
+  
+  const [error, setError]  = React.useState(false);
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    fetchData();
+    // fetchBalnce();
+  })
+    
+    const fetchData = async () => {
+        console.log(params)
+        const res = await fetch(`http://localhost:5000/api/users/find/${params.id}`);
+        const data = await res.json();
+        console.log(params)
+        setName(data.name);
+        setUserName(data.username);
+        setEmail(data.email);
+    };
+    const fetchBalnce = async () => {
+        const res_bank = await fetch(`http://localhost:5000/api/userbalance/${params.id}`);
+        const data_bank = await res_bank.json();
+        setBalance(data_bank.balance);
+    };
+
+//   const getUser = async(id)=>{
+//     let result = await fetch(`http://localhost:5000/api/products/${id}`);
+//     result = await result.json();
+//   };
+//   useEffect(()=>{
+//     const auth = localStorage.getItem('user');
+//     if (auth){navigate('/')}
+//   })
+//   const collectData = async()=>{
+//     console.warn(name,username,email, password,confirmPassword);
+//     if(!name || !username || !email || !password || !confirmPassword)
+//     {
+//         setError(true);
+//         return false;
+//     }
+//     let result  = await fetch("http://localhost:5000/api/auth/register", {
+//       method: 'post',
+//       body: JSON.stringify({name,username,email,password,confirmPassword}),
+//       headers: {
+//         'Content-Type': 'application/json'
+//       }
+//     });
+//     result = await result.json();
+//     console.warn(result);
+//     localStorage.setItem("user",JSON.stringify(result))
+//     navigate('/openbankaccount')
+//   }
   return (
     <div>
-      <div className="container emp-profile">
-            <form method="post">
-                <div className="row">
-                    <div className="col-md-4">
-                        <div className="profile-img">
-                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
-                            {/* <div className="file btn btn-lg btn-primary">
-                                Change Photo
-                                <input type="file" name="file"/>
-                            </div> */}
-                        </div>
-                    </div>
-                    <div className="col-md-6">
-                        <div className="profile-head">
-                                    {/* <h5>
-                                        Kshiti Ghelani
-                                    </h5>
-                                    <h6>
-                                        Web Developer and Designer
-                                    </h6>
-                                    <p className="proile-rating">RANKINGS : <span>8/10</span></p> */}
-                            <ul className="nav nav-tabs" id="myTab" role="tablist">
-                                <li className="nav-item">
-                                    <a className="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
-                                </li>
-                                {/* <li className="nav-item">
-                                    <a className="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Timeline</a>
-                                </li> */}
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="col-md-2">
-                        <input type="submit" className="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    </div>
+      <section
+        className="vh-100 bg-image"
+        style={{
+          backgroundImage:
+            "https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp",
+        }}
+      >
+        <div className="mask d-flex align-items-center h-100 gradient-custom-3">
+          <div className="container h-100">
+            <div className="row d-flex justify-content-center align-items-center h-100">
+              <div className="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div className="card" style={{ borderRadius: "15px" }}>
+                  <div className="card-body p-5">
+                    <h2 className="text-uppercase text-center mb-5">
+                      User Profile
+                    </h2>
+
+                    <form>
+                      <div className="form-outline mb-4">
+                      <h5 className="text-left">
+                        Name: {name} 
+                      </h5>
+                      </div>
+
+                      <div className="form-outline mb-4">
+                      <h5 className="text-left">
+                        Username: {username}
+                      </h5>
+                      </div>
+
+                      <div className="form-outline mb-4">
+                      <h5 className="text-left">
+                        Email: {email}
+                      </h5>
+                      </div>
+
+                      <div className="form-outline mb-4">
+                      <h5 className="text-left">
+                        BankBalance: {balance} 
+                      </h5>
+                      </div>
+                    </form>
+                  </div>
                 </div>
-                <div className="row">
-                    <div className="col-md-4">
-                        
-                    </div>
-                    <div className="col-md-8">
-                        <div className="tab-content profile-tab" id="myTabContent">
-                            <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>User Id</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>Kshiti123</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Name</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>Kshiti Ghelani</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Email</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
-                                            </div>
-                                        </div>
-                                        
-                            </div>
-                            <div className="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Experience</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Hourly Rate</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>10$/hr</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Total Projects</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>230</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>English Level</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>Expert</p>
-                                            </div>
-                                        </div>
-                                        <div className="row">
-                                            <div className="col-md-6">
-                                                <label>Availability</label>
-                                            </div>
-                                            <div className="col-md-6">
-                                                <p>6 months</p>
-                                            </div>
-                                        </div>
-                                <div className="row">
-                                    <div className="col-md-12">
-                                        <label>Your Bio</label><br/>
-                                        <p>Your detail description</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>           
+              </div>
+            </div>
+          </div>
         </div>
+      </section>
     </div>
   )
 }

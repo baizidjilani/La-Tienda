@@ -1,40 +1,35 @@
-import React, {useEffect, useState} from "react";
-import { Link, useNavigate,useParams } from "react-router-dom";
+import React, {useState} from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function ProductDetails() {
-
-	const [title,setTitle] = useState("");
-	const [desc,setDescription] = useState("");
-	const [img,setImage] = useState("No Image");
-	const [categories,setCategories] = useState("");
-	const [size,setSize] = useState("");
-	const [color,setColor] = useState("");
-	const [price,setPrice] = useState("");
-	const params = useParams();
-	const [error, setError]  = React.useState(false);
-	const navigate = useNavigate();
-  
-	useEffect(()=>{
-	  getProductDetails();
-	},[])
-  
-	const getProductDetails = async()=>{
-	  console.log(params);
-	  let result = await fetch(`http://localhost:5000/api/products/find/${params.id}`);
-	  result = await result.json();
-	  console.warn(result)
-	  setTitle(result.title);
-	  setDescription(result.desc)
-	  setImage(result.img)
-	  setCategories(result.categories)
-	  setSize(result.size)
-	  setColor(result.color)
-	  setPrice(result.price)
-	}
+export default function Seller() {
+  const [cardHolderName,setName] = useState("");
+  const [email,setEmail] = useState("");
+  const [cardNumber,setcardNumber] = useState("");
+  const [secretNumber,setSecretNumber] = useState("");
+  const [balance,setBalance] = useState("");
+  const [error, setError]  = React.useState(false);
+  const navigate = useNavigate();
+  const collectBankInformation = async()=>{
+    console.warn(cardHolderName,email, cardNumber,secretNumber,balance);
+    if(!cardHolderName || !email || !cardNumber || !secretNumber || !balance)
+    {
+        setError(true);
+        return false;
+    }
+    let result  = await fetch("http://localhost:5000/api/bank/openaccount", {
+      method: 'post',
+      body: JSON.stringify({cardHolderName,email,cardNumber,secretNumber,balance}),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    result = await result.json();
+    console.warn(result);
+    navigate('/login')
+  }
   return (
     <div>
-      
-					<section
+      <section
         className="vh-100 bg-image"
         style={{
           backgroundImage:
@@ -48,37 +43,37 @@ export default function ProductDetails() {
                 <div className="card" style={{ borderRadius: "15px" }}>
                   <div className="card-body p-5">
                     <h2 className="text-uppercase text-center mb-5">
-                      Product Details
+                      Seller Profile
                     </h2>
 
                     <form>
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        Title: {title}
+                        Seller Name: Seller2 
                       </h5>
                       </div>
 
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        Category: {categories}
+                        Seller Username: Seller2 
                       </h5>
                       </div>
 
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        Size: {size}
+                        Seller Email: Seller2 
                       </h5>
                       </div>
 
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        Price: {price}
+                        Seller Shopname: Seller2 
                       </h5>
                       </div>
 
-					  <div className="form-outline mb-4">
+                      <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        Description: {color}
+                        Seller BankBalance: Seller2 
                       </h5>
                       </div>
                     </form>
@@ -89,6 +84,6 @@ export default function ProductDetails() {
           </div>
         </div>
       </section>
-</div>
-  )
+    </div>
+  );
 }

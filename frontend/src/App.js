@@ -2,8 +2,7 @@ import './App.css';
 import Checkout from './components/Checkout';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
-import Admin from './components/Admin';
-import Seller from './components/Seller';
+
 import Transaction from './components/Tansaction';
 import Signup from './components/Signup';
 import Login from './components/Login';
@@ -15,13 +14,18 @@ import Navbar2 from './components/Navbar2';
 import OrderConfirmation from './components/OrderConfirmation';
 import PrivateComponent from './components/PrivateComponent';
 import Logout from './components/Logout';
-import AddProduct from './components/AddProduct';
+import Seller from './components/Seller';
+import SellerLogin from './components/SellerLogin';
+import SellerAddProduct from './components/SellerAddProduct';
 import Update from './components/Update';
+import Admin from './components/Admin';
 import AdminDashboard from './components/AdminDashboard';
 import AdminUsers from './components/AdminUsers';
 import AdminSellers from './components/AdminSellers';
 import AdminProducts from './components/AdminProducts';
 import AdminOrders from './components/AdminOrders';
+import SellerSignup from './components/SellerSignup';
+import SellerProfile from './components/SellerProfile';
 
 function App() {
   return (
@@ -36,6 +40,8 @@ function App() {
       <Route path = '/logout' element = {<Logout/>} />
       <Route path = '/openbankaccount' element = {<OpenBankAccount/>} />
       <Route path = '/login' element = {<Login/>} />
+      <Route path='seller/profile' element = {<SellerProfile />} />
+
       <Route path = '/admin' element = {<Admin/>} >
         <Route path='dashboard' element = {<AdminDashboard />} />
         <Route path='products' element = {<AdminProducts />} />
@@ -43,13 +49,19 @@ function App() {
         <Route path='users' element = {<AdminUsers />} />
         <Route path='sellers' element = {<AdminSellers />} />
       </Route>
+      <Route path = '/seller/signup' element = {<SellerSignup/>} />
+      <Route path = '/seller/login' element = {<SellerLogin/>} />
+      <Route path = '/seller' element = {<Seller/>} >
+        <Route path='dashboard' element = {<AdminDashboard />} />
+        
+        <Route path='add_Product' element = {<SellerAddProduct/>} />
+      </Route>
       <Route path = '/orderconfirmation' element = {<OrderConfirmation/>} />
-      <Route path = '/seller' element = {<AddProduct/>} />
       <Route path = '/update/:id' element = {<Update/>} />
       <Route element = {<PrivateComponent/>}>
       <Route path = '/profile' element = {<UserProfile/>} />
       <Route path = '/checkout' element = {<Checkout/>} />
-      <Route path = '/productdetails' element = {<ProductDetails/>} />
+      <Route path = '/productdetails/:id' element = {<ProductDetails/>} />
       <Route path = '/transaction' element = {<Transaction/>} />
       </Route>
     </Routes>

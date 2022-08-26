@@ -15,7 +15,7 @@ export default function UpdateProduct() {
 
   useEffect(()=>{
     getProductDetails();
-  },[])
+  })
 
   const getProductDetails = async()=>{
     console.log(params);

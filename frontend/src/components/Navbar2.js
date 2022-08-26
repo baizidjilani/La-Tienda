@@ -1,12 +1,13 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Navbar2() {
   const auth = localStorage.getItem('user');
   const navigate =useNavigate();
   const logout =()=>{
+    console.log(auth._id)
     localStorage.clear();
     navigate('/signup')
   }
@@ -19,13 +20,13 @@ function Navbar2() {
         <Navbar.Collapse id="basic-navbar-nav">
         {auth?<Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/Profile">Profile</Nav.Link>
-            <Nav.Link href="/Seller">Sell on Ecommercy</Nav.Link>
+            <Link to={"/Profile/"+auth._id}>Profile</Link>
             <Nav.Link href="/Signup" onClick={logout}>Logout ({JSON.parse(auth).username})</Nav.Link>
             </Nav>:
             <Nav className="me-auto">
             <Nav.Link href="/Signup">Signup</Nav.Link>
             <Nav.Link href="/Login">Login</Nav.Link>
+            <Nav.Link href="/Seller/Login">Sell on Ecommercy</Nav.Link>
             <Nav.Link href="/admin">Admin</Nav.Link>
             </Nav>}
         </Navbar.Collapse>

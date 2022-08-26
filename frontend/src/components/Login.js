@@ -5,7 +5,15 @@ export default function SellerLogin() {
   const [username,setusername] = useState("");
   const [password,setPassword] = useState("");
   const navigate = useNavigate();
+  const [error, setError]  = React.useState(false);
   const handleLogin = async()=>{
+
+    if(!username || !password)
+    {
+        setError(true);
+        return false;
+    }
+
     console.warn(username,password);
     let result  = await fetch("http://localhost:5000/api/auth/login", {
       method: 'post',
@@ -22,7 +30,7 @@ export default function SellerLogin() {
       navigate('/')
     }
     else{
-      alert("Please Enter Correct username!!")
+      alert("Please Enter Correct username or password!!")
     }
     navigate('/')
   }
@@ -48,25 +56,25 @@ export default function SellerLogin() {
                     <span className="h1 fw-bold mb-0">Log In</span>
                   </div>
 
-                  <h5 className="fw-normal mb-3 pb-3" style={{letterSpacing: "1px"}}>Sign into your account</h5>
-
                   <div className="form-outline mb-4">
                     <input 
                       type="email" 
                       id="form2Example17" 
                       className="form-control form-control-lg" 
+                      placeholder='User Name'
                       value={username}
                       onChange = {(e) => setusername(e.target.value)} />
-                    <label className="form-label" htmlFor="form2Example17">User Name</label>
+                    {error && !username && <span className="invalid_block">Enter Valid Username </span>}
                   </div>
 
                   <div className="form-outline mb-4">
                     <input type="password" 
                     id="form2Example27" 
                     className="form-control form-control-lg"
+                    placeholder='Password'
                     value={password}
                     onChange = {(e) => setPassword(e.target.value)} />
-                    <label className="form-label" htmlFor="form2Example27">Password</label>
+                    {error && !password && <span className="invalid_block">Enter Valid Username </span>}
                   </div>
 
                   <div className="pt-1 mb-4">

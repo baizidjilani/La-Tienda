@@ -16,14 +16,14 @@ export default function SellerSignup() {
   })
   const collectData = async()=>{
     console.warn(name,username,email, password,confirmPassword);
-    if(!name || !username || !email || !password || !confirmPassword)
+    if(!name || !username || !shopname || !email || !password || !confirmPassword)
     {
         setError(true);
         return false;
     }
-    let result  = await fetch("http://localhost:5000/api/auth/register", {
+    let result  = await fetch("http://localhost:5000/api/auth//supplier/register", {
       method: 'post',
-      body: JSON.stringify({name,username,email,password,confirmPassword}),
+      body: JSON.stringify({name,username,shopname,email,password,confirmPassword}),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -102,7 +102,7 @@ export default function SellerSignup() {
                               className="form-control"
                               placeholder="Shopname"
                               value={shopname} 
-                              onChange = {(e) => setEmail(e.target.value)}
+                              onChange = {(e) => setShopname(e.target.value)}
                             />
                             {error && !shopname && <span className="invalid_block">Enter Valid Shopname</span>}
                           </div>
