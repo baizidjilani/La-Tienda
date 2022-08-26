@@ -56,7 +56,7 @@ router.get("/find/:userId", verifyTokenAndAuthorization, async (req, res) => {
 });
 
 // Get All users Orders
-router.get("/", verifyTokenAndAdmin, async (req, res)=>{ 
+router.get("/", async (req, res)=>{ 
     try{
         const orders = await Order.find();
 

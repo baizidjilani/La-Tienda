@@ -37,7 +37,8 @@ router.post("/", upload.single('img'), async (req, res) => {
         categories: req.body.categories,
         size: req.body.size,
         color: req.body.color,
-        price: req.body.price
+        price: req.body.price,
+        stock: req.body.stock
     });
 
     try {
