@@ -26,6 +26,7 @@ import SellerSignup from './components/SellerSignup';
 import SellerProfile from './components/SellerProfile';
 import Products from './components/Products'
 import ProductDescription from './components/ProductDescription'
+import Cart from './components/Cart';
 
 function App() {
   return (
@@ -45,6 +46,8 @@ function App() {
       <Route path = '/logout' element = {<Logout/>} />
       <Route path = '/openbankaccount' element = {<OpenBankAccount/>} />
       <Route path = '/login' element = {<Login/>} />
+      <Route path = '/cart' element = {<Cart/>} />
+      
       <Route path='seller/profile' element = {<SellerProfile />} />
 
       <Route path = '/admin' element = {<Admin/>} >

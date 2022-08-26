@@ -14,20 +14,21 @@ export default function UserProfile() {
 
   useEffect(()=>{
     fetchData();
-    // fetchBalnce();
+    fetchBalnce();
   })
     
     const fetchData = async () => {
         console.log(params)
         const res = await fetch(`http://localhost:5000/api/users/find/${params.id}`);
         const data = await res.json();
-        console.log(params)
+        console.log(data)
         setName(data.name);
         setUserName(data.username);
         setEmail(data.email);
     };
     const fetchBalnce = async () => {
         const res_bank = await fetch(`http://localhost:5000/api/userbalance/${params.id}`);
+        console.log(res_bank)
         const data_bank = await res_bank.json();
         setBalance(data_bank.balance);
     };
@@ -50,7 +51,7 @@ export default function UserProfile() {
                       User Profile
                     </h2>
 
-                    <form>
+                    <form className="text-start">
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
                         Name: {name} 

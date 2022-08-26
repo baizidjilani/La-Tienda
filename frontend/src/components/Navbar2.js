@@ -20,6 +20,7 @@ function Navbar2() {
         <Navbar.Collapse id="basic-navbar-nav">
         {auth?<Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="/cart">Cart</Nav.Link>
             <Link to={"/Profile/"+auth._id}>Profile</Link>
             <Nav.Link href="/Signup" onClick={logout}>Logout ({JSON.parse(auth).username})</Nav.Link>
             </Nav>:
