@@ -49,7 +49,7 @@ export default function ProductDescription() {
                         <h2>{description.title}</h2>
                         <p>{description.desc}</p>
                         <hr />
-                        <p className="display-6">$ {description.price}</p>
+                        <p className="display-6">&#2547; {description.price}</p>
                         <button type="button" className="btn btn-outline-dark w-100" onClick={() => addItem(description)}>Add to cart</button>
                     </div>
                 </div>
