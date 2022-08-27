@@ -1,25 +1,37 @@
 import React, {useEffect, useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+
+// You need to do the following thing:
+// At first give a get request to get the users balance. 
+// If the balance is not sufficient, then show a alert.
+// If it is sufficient the make request for purchase.
+// Also update the user, ecommerce and seller bank balance.
+
 export default function Checkout() {
   const [name,setName] = useState("");
-  const [username,setusername] = useState("");
   const [email,setEmail] = useState("");
-  const [password,setPassword] = useState("");
-  const [confirmPassword,setConfirmPassword] = useState("");
+  const [mobileno,setMobileNo] = useState("");
+  const [address,setAddress] = useState("");
+  const [cardnumber,setCardNumber] = useState("");
+  const [secretnumber,setSecretNumber] = useState("");
+  const [totalamount,setTotalAmount] = useState("");
   const [error, setError]  = React.useState(false);
   const navigate = useNavigate();
   useEffect(()=>{
     const auth = localStorage.getItem('user');
     if (auth){navigate('/')}
   })
+
+
   const collectData = async()=>{
     console.warn(name,username,email, password,confirmPassword);
-    if(!name || !username || !email || !password || !confirmPassword)
+    if(!name || !email || !mobileno || !address || !cardnumber || secretnumber)
     {
         setError(true);
         return false;
     }
+    // Update this route
     let result  = await fetch("http://localhost:5000/api/auth/register", {
       method: 'post',
       body: JSON.stringify({name,username,email,password,confirmPassword}),
@@ -30,7 +42,8 @@ export default function Checkout() {
     result = await result.json();
     console.warn(result);
     localStorage.setItem("user",JSON.stringify(result))
-    navigate('/openbankaccount')
+    alert("Order Placed Successfully!!!")
+    navigate('/')
   }
   return (
     <div>
@@ -43,7 +56,7 @@ export default function Checkout() {
                   <div className="row justify-content-center">
                     <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                       <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-                        Sign up
+                        Order Conformation 
                       </p>
 
                       <form className="mx-1 mx-md-4">
@@ -70,21 +83,6 @@ export default function Checkout() {
                               id="form3Example1c"
                               className="form-control"
                               placeholder="User Name"
-                              value={username} 
-                              onChange = {(e) => setusername(e.target.value)}
-                            />
-                            {error && !username && <span className="invalid_block">Enter Valid Username </span>}
-                          </div>
-                        </div>
-
-                        <div className="d-flex flex-row align-items-center mb-4">
-                          <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                          <div className="form-outline flex-fill mb-0">
-                            <input
-                              type="email"
-                              id="form3Example3c"
-                              className="form-control"
-                              placeholder="Email"
                               value={email} 
                               onChange = {(e) => setEmail(e.target.value)}
                             />
@@ -93,17 +91,32 @@ export default function Checkout() {
                         </div>
 
                         <div className="d-flex flex-row align-items-center mb-4">
+                          <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                          <div className="form-outline flex-fill mb-0">
+                            <input
+                              type="number"
+                              id="form3Example3c"
+                              className="form-control"
+                              placeholder="Number"
+                              value={number} 
+                              onChange = {(e) => setEmail(e.target.value)}
+                            />
+                            {error && !number && <span className="invalid_block">Enter Valid Number.</span>}
+                          </div>
+                        </div>
+
+                        <div className="d-flex flex-row align-items-center mb-4">
                           <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
                             <input
-                              type="password"
+                              type="text"
                               id="form3Example4d"
                               className="form-control"
                               placeholder="Password"
-                              value={password} 
+                              value={address} 
                               onChange = {(e) => setPassword(e.target.value)}
                             />
-                            {error && !password && <span className="invalid_block">Enter Valid Password </span>}
+                            {error && !address && <span className="invalid_block">Enter Valid Address </span>}
                           </div>
                         </div>
 
@@ -111,14 +124,36 @@ export default function Checkout() {
                           <i className="fas fa-key fa-lg me-3 fa-fw"></i>
                           <div className="form-outline flex-fill mb-0">
                             <input
-                              type="password"
+                              type="text"
                               id="form3Example4cd"
                               className="form-control"
                               placeholder="Confirm Password"
-                              value={confirmPassword} 
+                              value={cardnumber} 
                               onChange = {(e) => setConfirmPassword(e.target.value)}
                             />
-                            {error && !confirmPassword && <span className="invalid_block">Your Password is Incorrect </span>}
+                            {error && !cardnumber && <span className="invalid_block">Enter Valid Card Number</span>}
+                          </div>
+                        </div>
+
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <i className="fas fa-key fa-lg me-3 fa-fw"></i>
+                          <div className="form-outline flex-fill mb-0">
+                            <input
+                              type="text"
+                              id="form3Example4cd"
+                              className="form-control"
+                              placeholder="Confirm Password"
+                              value={cardnumber} 
+                              onChange = {(e) => setConfirmPassword(e.target.value)}
+                            />
+                            {error && !secretnumber && <span className="invalid_block">Enter Valid Secret Number</span>}
+                          </div>
+                        </div>
+
+                        <div className="d-flex flex-row align-items-center mb-4">
+                          <i className="fas fa-key fa-lg me-3 fa-fw"></i>
+                          <div className="form-outline flex-fill mb-0">
+                           <h4> Total Amount: </h4>
                           </div>
                         </div>
 
@@ -128,7 +163,7 @@ export default function Checkout() {
                             className="btn btn-primary btn-lg"
                             onClick={collectData}
                           >
-                            <h3>Register</h3>
+                            <h3>Place Your Order</h3>
                           </button>
                         </div>
                       </form>

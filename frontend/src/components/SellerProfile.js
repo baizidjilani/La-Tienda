@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useParams } from "react-router-dom";
+import React, {useEffect, useState} from "react";
 
 export default function Seller() {
   const [name,setName] = useState("");
@@ -12,24 +12,24 @@ export default function Seller() {
   const navigate = useNavigate();
 
   useEffect(()=>{
-    fetchData();
-    fetchBalance();
+    // fetchData();
+    // fetchBalance();
   }, [])
     
     const fetchData = async () => {
-        console.log(params)
-        const res = await fetch(`http://localhost:5000/api/suppliers/find/${params.id}`);
-        const data = await res.json();
-        console.log(data)
-        setName(data.name);
-        setUserName(data.username);
-        setEmail(data.email);
+        // console.log(params)
+        // const res = await fetch(`http://localhost:5000/api/suppliers/find/${params.id}`);
+        // const data = await res.json();
+        // console.log(data)
+        // setName(data.name);
+        // setUserName(data.username);
+        // setEmail(data.email);
     };
     const fetchBalance = async () => {
-        const res_bank = await fetch(`http://localhost:5000/api/userbalance/${params.id}`);
-        const data_bank = await res_bank.json();
-        console.log(data_bank);
-        setBalance(data_bank);
+        // const res_bank = await fetch(`http://localhost:5000/api/userbalance/${params.id}`);
+        // const data_bank = await res_bank.json();
+        // console.log(data_bank);
+        // setBalance(data_bank);
     };
   return (
     <div>
@@ -50,34 +50,34 @@ export default function Seller() {
                       Seller Profile
                     </h2>
 
-                    <form>
+                    <form className="text-start">
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        Seller Name: Seller2 
+                        Name: Name 
                       </h5>
                       </div>
 
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        Seller Username: Seller2 
+                        Username: UserName
                       </h5>
                       </div>
 
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        Seller Email: Seller2 
+                        Email: Email
                       </h5>
                       </div>
 
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        Seller Shopname: Seller2 
+                        ShopName: ShopName
                       </h5>
                       </div>
 
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        Seller BankBalance: Seller2 
+                        BankBalance: Balance 
                       </h5>
                       </div>
                     </form>

@@ -3,7 +3,8 @@ import { Link, Outlet } from 'react-router-dom';
 import "./admin.css";
 
 
-export default function Admin() {
+export default function Seller() {
+  const auth = localStorage.getItem('user');
   return (
     <div>
       <div className="grid-container">
@@ -25,7 +26,7 @@ export default function Admin() {
                 <span className="material-icons-outlined">add_shopping_cart</span> Orders
               </li>
             </Link>
-            <Link to='/seller/profile'>
+            <Link to={'profile/'+auth._id}>
               <li className="sidebar-list-item">
                 <span className="material-icons-outlined">person</span> Seller Profile
               </li>
