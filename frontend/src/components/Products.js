@@ -47,7 +47,7 @@ export default function Products() {
               return (
                 <div className="col" key={items._id}>
                   <div
-                    className="card h-100"
+                    className="card"
                     style={{ padding: "0px" }}
                     id="product-card"
                   >
@@ -59,7 +59,7 @@ export default function Products() {
                         {items.title}
                       </h5>
                       <p className="card-text fw-bold text-dark">
-                        Price : $ {items.price}
+                        Price : &#2547; {items.price}
                       </p>
                       <button
                         type="button"
