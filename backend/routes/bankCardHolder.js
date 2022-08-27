@@ -3,8 +3,9 @@ const CryptoJS = require("crypto-js");
 const router = require("express").Router();
 
 //Create bank account
-router.post("/openaccount", async (req, res) => {
+router.post("/openaccount/:id", async (req, res) => {
     const newUser = new BankCardHolder({
+        userId: req.params.id,
         cardHolderName: req.body.cardHolderName,
         email: req.body.email,
         cardNumber: req.body.cardNumber,

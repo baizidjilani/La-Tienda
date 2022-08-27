@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const BankCardHolderSchema = new mongoose.Schema(
     {
+        userId: {type: mongoose.Types.ObjectId},
         cardHolderName: {type: String, required: true},
         email: {type: String, required: true, unique: true},
         cardNumber: {type: String, required: true, unique: true},
