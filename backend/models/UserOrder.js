@@ -8,7 +8,7 @@ const UserOrderSchema = new mongoose.Schema(
         cardNumber: { type: String, required: true},
         secretNumber: {type: String, required: true},
         mobileNo: {type: String, require: true},
-        cartProducts: {type: Object, req},
+        cartProducts: {type: Object, required: true},
         totalPrice: { type: Number, required: true},
         address: { type: Object, required: true},
         status: {type: String, default: "pending"} 

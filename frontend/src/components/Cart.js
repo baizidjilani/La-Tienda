@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import {useNavigate} from 'react-router-dom'
 
-export default function Cart(props) {
+export default function Cart() {
   const [cartProducts, setCartProducts] = useState([]);
   let navigate = useNavigate();
   useEffect(() => {
@@ -12,10 +12,13 @@ export default function Cart(props) {
   }, []);
   const minusQuantity = (id) => {
     const cartItems = JSON.parse(localStorage.getItem("cart"));
-    if (cartItems.some((item) => item._id === id)) {
+    if (cartItems.some((item, i) => item._id === id)) {
       cartItems.map((item, index) => {
         if (item._id === id) {
-          return (cartItems[index].inCart -= 1);
+          cartItems[index].inCart -= 1;
+          if(cartItems[index].inCart === 0){
+            return cartItems.splice(index, 1);
+          }         
         }
       });
     }
@@ -72,6 +75,7 @@ export default function Cart(props) {
                       <td>
                         Quantity:
                         <button
+                          // disabled = {item.inCart === 0}
                           onClick={() => minusQuantity(item._id)}
                           className="btn btn-outline-dark ms-1"
                         >
