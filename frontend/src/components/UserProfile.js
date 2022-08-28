@@ -27,7 +27,7 @@ export default function UserProfile() {
         setEmail(data.email);
     };
     const fetchBalance = async () => {
-        const res_bank = await fetch(`http://localhost:5000/api/userbalance/${params.id}`);
+        const res_bank = await fetch(`http://localhost:7000/api/userbalance/${params.id}`);
         const data_bank = await res_bank.json();
         console.log(data_bank);
         setBalance(data_bank);
