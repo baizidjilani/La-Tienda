@@ -42,7 +42,7 @@ export default function ProductDescription() {
            <div className="container">
             <div className="row">
                 <div className="col-md-6">
-                    <img src="./images/watch.jpg" alt="product" className="w-100"/>
+                    <img src={`http://localhost:5000/uploads/${description.img}`} alt="product" className="w-100"/>
                 </div>
                 <div className="col-md-6">
                     <div>

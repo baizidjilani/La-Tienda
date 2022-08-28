@@ -1,4 +1,5 @@
 import Banners from "./Banners";
+import "./admin.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -21,19 +22,19 @@ export default function Products() {
     } else {
       let updatedCart = JSON.parse(cartArray);
 
-      if ( updatedCart.some((item)=> item._id === product._id)){
+      if (updatedCart.some((item) => item._id === product._id)) {
         updatedCart.map((item, index) => {
-            if (item._id === product._id) {
-             return updatedCart[index].inCart += 1;
-            }
-          });
+          if (item._id === product._id) {
+            return updatedCart[index].inCart += 1;
+          }
+        });
 
       }
       else {
-        updatedCart.push({...product, inCart: 1})
+        updatedCart.push({ ...product, inCart: 1 })
       }
-      
-      localStorage.setItem("cart",JSON.stringify(updatedCart));
+
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
     }
   };
   return (
@@ -52,13 +53,13 @@ export default function Products() {
                     id="product-card"
                   >
                     <Link to={`/${items._id}`}>
-                       <img src={`http://localhost:5000/uploads/${items.img}`} className="card-img-top" alt={items.img} />
+                      <img src={`http://localhost:5000/uploads/${items.img}`} className="card-img-top" alt={items.img} />
                     </Link>
                     <div className="card-body">
-                      <h5 className="card-title fw-bolder text-dark">
+                      <h5 className="card-title fw-bolder" style={{ color: "#9A616D" }}>
                         {items.title}
                       </h5>
-                      <p className="card-text fw-bold text-dark">
+                      <p className="card-text fw-bold text-secondary">
                         Price : &#2547; {items.price}
                       </p>
                       <button

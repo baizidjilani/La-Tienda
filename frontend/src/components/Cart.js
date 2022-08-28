@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom'
 
 export default function Cart(props) {
   const [cartProducts, setCartProducts] = useState([]);
+  let navigate = useNavigate();
   useEffect(() => {
     const cartItems = localStorage.getItem("cart");
     if (cartItems) {
@@ -44,6 +46,8 @@ export default function Cart(props) {
     setCartProducts(cartItems);
     localStorage.setItem("cart", JSON.stringify(cartItems));
   };
+
+
   return (
     <div className="container-fluid py-3">
       <div className="row justify-content-center">
@@ -126,6 +130,7 @@ export default function Cart(props) {
             <button
               type="button"
               className="btn btn-outline-dark w-100"
+              onClick={() =>  navigate("/checkout")}
             >
               Proceed to checkout
             </button>

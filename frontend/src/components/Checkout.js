@@ -11,12 +11,14 @@ import { Link, useNavigate } from "react-router-dom";
 export default function Checkout() {
   const [name,setName] = useState("");
   const [email,setEmail] = useState("");
-  const [mobileno,setMobileNo] = useState("");
+  const [mobileNo,setMobileNo] = useState("");
   const [address,setAddress] = useState("");
-  const [cardnumber,setCardNumber] = useState("");
-  const [secretnumber,setSecretNumber] = useState("");
-  const [totalamount,setTotalAmount] = useState("");
-  const [error, setError]  = React.useState(false);
+  const [cardNumber,setCardNumber] = useState("");
+  const [secretNumber,setSecretNumber] = useState("");
+  const [totalPrice,setTotalPrice] = useState("");
+  const [error, setError]  = useState(false);
+  const [userId, setuserId] = useState("");
+  const [cartProducts, setCartProducts] = useState([]);
   const navigate = useNavigate();
   useEffect(()=>{
     const auth = localStorage.getItem('user');

@@ -36,6 +36,17 @@ body {
     font-weight: 600;
   }
   
+  .btn-outline-dark{
+    color: #9A616D;
+    border-color: #9A616D;
+    font-weight: 600;
+  }
+
+  .btn-outline-dark:hover{
+    background-color: #9A616D;
+    border-color: #9A616D;
+  }
+
   .grid-container {
     display: grid;
     grid-template-columns: 260px 15fr 1fr 1fr;
