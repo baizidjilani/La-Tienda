@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function AddProduct() {
+export default function SellerAddProduct() {
   const [title,setTitle] = useState("");
   const [desc,setDescription] = useState("");
   const [img,setImage] = useState("No Image");

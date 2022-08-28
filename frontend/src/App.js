@@ -14,7 +14,6 @@ import PrivateComponent from './components/PrivateComponent';
 import Logout from './components/Logout';
 import Seller from './components/Seller';
 import SellerLogin from './components/SellerLogin';
-import SellerAddProduct from './components/SellerAddProduct';
 import Update from './components/Update';
 import Admin from './components/Admin';
 import AdminDashboard from './components/AdminDashboard';
@@ -24,6 +23,8 @@ import AdminProducts from './components/AdminProducts';
 import AdminOrders from './components/AdminOrders';
 import SellerSignup from './components/SellerSignup';
 import SellerProfile from './components/SellerProfile';
+import SellerDashboard from './components/SellerDashboard';
+import SellerAddProduct from './components/SellerAddProduct';
 import Products from './components/Products'
 import ProductDescription from './components/ProductDescription'
 import Cart from './components/Cart';
@@ -48,15 +49,22 @@ function App() {
       <Route path = '/login' element = {<Login/>} />
       <Route path = '/cart' element = {<Cart/>} />
       
-      <Route path='seller/profile/:id' element = {<SellerProfile />} />
-      <Route path='seller/addproducts' element = {<SellerAddProduct/>} />
+      {/* <Route path='seller/profile/:id' element = {<SellerProfile />} />
+      <Route path='seller/addproducts' element = {<SellerAddProduct/>} /> */}
+
+      <Route path = '/seller' element = {<Seller/>} >
+        <Route path='dashboard' element = {<SellerDashboard/>} />
+        <Route path='addproducts' element = {<SellerAddProduct/>} />
+        <Route path='orders' element = {<AdminOrders />} />
+        <Route path='profile' element = {<AdminUsers />} />
+      </Route>
 
       <Route path = '/admin' element = {<Admin/>} >
         <Route path='dashboard' element = {<AdminDashboard />} />
         <Route path='products' element = {<AdminProducts />} />
         <Route path='orders' element = {<AdminOrders />} />
         <Route path='users' element = {<AdminUsers />} />
-        <Route path='sellers' element = {<AdminSellers />} />
+        <Route path='sellers' element = {<SellerProfile />} />
       </Route>
       <Route path = '/seller/signup' element = {<SellerSignup/>} />
       <Route path = '/seller/login' element = {<SellerLogin/>} />

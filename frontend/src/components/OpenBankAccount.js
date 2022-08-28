@@ -16,7 +16,8 @@ export default function OpenBankAccount() {
         setError(true);
         return false;
     }
-    let result  = await fetch("http://localhost:5000/api/bank/openaccount", {
+    const items = JSON.parse(localStorage.getItem('user'));
+    let result  = await fetch(`http://localhost:5000/api/bank/openaccount/${items._id}`, {
       method: 'post',
       body: JSON.stringify({cardHolderName,email,cardNumber,secretNumber,balance}),
       headers: {
