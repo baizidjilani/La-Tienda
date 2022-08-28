@@ -9,7 +9,7 @@ export default function ProductDescription() {
         fetchData();
     }, []);
     const fetchData = async () => {
-        const res = await fetch(`http://localhost:5000/api/products/find/${params.id}`);
+        const res = await fetch(`http://localhost:4000/api/products/find/${params.id}`);
         const data = await res.json();
         setDescription(data);
         setIsLoading(false);
@@ -42,7 +42,7 @@ export default function ProductDescription() {
            <div className="container">
             <div className="row">
                 <div className="col-md-6">
-                    <img src={`http://localhost:5000/uploads/${description.img}`} alt="product" className="w-100"/>
+                    <img src={`http://localhost:4000/uploads/${description.img}`} alt="product" className="w-100"/>
                 </div>
                 <div className="col-md-6">
                     <div>

@@ -37,21 +37,45 @@ export default function Checkout() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let res = await fetch(`http://localhost:5000/api/userorders/${userId}`, {
+
+    let res = await fetch('http://localhost:7000/api/transaction/', {
       method: 'post',
-      body: JSON.stringify({ name, email, mobileNo, address, cardNumber, secretNumber, totalPrice, cartProducts, userId }),
+      body: JSON.stringify({ cardNumber, secretNumber, totalPrice }),
       headers: {
         'Content-Type': 'application/json'
       }
     });
-    let order = await res.json();
-    if (res.status === 403) {
-      alert(order);
-    }else if (res.status === 201) {
-      alert(`Your order has been placed.
+    console.log(res);
+
+    let trans = await res.json();
+    console.log(res.status);
+    // if (res.status === 403) {
+    //   alert(trans);
+    // }else if (res.status === 201) {
+    //   alert(`Your order has been placed.
+    //   Transaction id : ${order['Your transaction number']}`);
+    //   localStorage.removeItem('cart');
+    //   navigate('/');
+    // }
+
+    if (res.status === 201) {
+      let res = await fetch(`http://localhost:5000/api/userorders/${userId}`, {
+        method: 'post',
+        body: JSON.stringify({ name, email, mobileNo, address, totalPrice, cartProducts, userId }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      let order = await res.json();
+
+      console.log(order);
+      if (res.status === 201) {
+        alert(`Your order has been placed.
       Transaction id : ${order['Your transaction number']}`);
-      localStorage.removeItem('cart');
-      navigate('/');
+        localStorage.removeItem('cart');
+        navigate('/');
+      }
     }
   }
   return (
@@ -93,7 +117,7 @@ export default function Checkout() {
                           return (
                             <div key={product._id} className="text-start ms-5 row">
                               <div className="col-4 d-flex justify-content-center align-items-center">
-                                <p style={{'fontSize' : '.8rem'}}>{product.title}</p>
+                                <p style={{ 'fontSize': '.8rem' }}>{product.title}</p>
                               </div>
                               <div className="col-4 d-flex justify-content-center align-items-center">
                                 X
@@ -105,7 +129,7 @@ export default function Checkout() {
                           )
                         })
                       }
-                     <p className="text-start fw-bold ms-5">Order Total : &#2547; {totalPrice}</p>
+                      <p className="text-start fw-bold ms-5">Order Total : &#2547; {totalPrice}</p>
                     </div>
                   </div>
                 </div>

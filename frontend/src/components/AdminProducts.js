@@ -9,7 +9,7 @@ export default function AdminProducts() {
         fetchData();
     }, []);
     const fetchData = async () => {
-        const res = await fetch('http://localhost:5000/api/products');
+        const res = await fetch('http://localhost:4000/api/products');
         const data = await res.json();
         setUsers(data);
         setIsLoading(false);
@@ -18,7 +18,7 @@ export default function AdminProducts() {
         () => [
             {
                 accessorKey: '_id', //access nested data with dot notation
-                header: 'ID',
+                header: 'Product ID',
             },
             {
                 accessorKey: 'title',
