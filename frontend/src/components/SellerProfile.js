@@ -5,6 +5,7 @@ export default function Seller() {
   const [name,setName] = useState("");
   const [username,setUserName] = useState("");
   const [email,setEmail] = useState("");
+  const [shopname,setShopName] = useState("");
   const [balance,setBalance] = useState("");
   const params = useParams();
   
@@ -12,24 +13,27 @@ export default function Seller() {
   const navigate = useNavigate();
 
   useEffect(()=>{
-    // fetchData();
+    fetchData();
     // fetchBalance();
   }, [])
     
     const fetchData = async () => {
-        // console.log(params)
-        // const res = await fetch(`http://localhost:5000/api/suppliers/find/${params.id}`);
-        // const data = await res.json();
-        // console.log(data)
-        // setName(data.name);
-        // setUserName(data.username);
-        // setEmail(data.email);
+      const items = JSON.parse(localStorage.getItem('user'));
+      const res = await fetch(`http://localhost:5000/api/suppliers/find/${items._id}`);
+      const data = await res.json();
+      // console.log(data)
+      setName(data.name);
+      setUserName(data.username);
+      setShopName(data.shopname);
+      setEmail(data.email);
     };
     const fetchBalance = async () => {
-        // const res_bank = await fetch(`http://localhost:5000/api/userbalance/${params.id}`);
-        // const data_bank = await res_bank.json();
-        // console.log(data_bank);
-        // setBalance(data_bank);
+        const items = JSON.parse(localStorage.getItem('user'));
+        console.log(items._id)
+        const res_bank = await fetch(`http://localhost:7000/api/userbalance/${items._id}`);
+        const data_bank = await res_bank.json();
+        console.log(data_bank);
+        setBalance(data_bank);
     };
   return (
     <div>
@@ -53,31 +57,31 @@ export default function Seller() {
                     <form className="text-start">
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        Name: Name 
+                        Name: {name} 
                       </h5>
                       </div>
 
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        Username: UserName
+                        Username: {username}
                       </h5>
                       </div>
 
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        Email: Email
+                        Email: {email}
                       </h5>
                       </div>
 
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        ShopName: ShopName
+                        ShopName: {shopname}
                       </h5>
                       </div>
 
                       <div className="form-outline mb-4">
                       <h5 className="text-left">
-                        BankBalance: Balance 
+                        BankBalance: {balance} 
                       </h5>
                       </div>
                     </form>

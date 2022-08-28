@@ -25,6 +25,7 @@ import SellerSignup from './components/SellerSignup';
 import SellerProfile from './components/SellerProfile';
 import SellerDashboard from './components/SellerDashboard';
 import SellerAddProduct from './components/SellerAddProduct';
+import SellerProducts from './components/SellerProducts'
 import Products from './components/Products'
 import ProductDescription from './components/ProductDescription'
 import Cart from './components/Cart';
@@ -55,8 +56,8 @@ function App() {
       <Route path = '/seller' element = {<Seller/>} >
         <Route path='dashboard' element = {<SellerDashboard/>} />
         <Route path='addproducts' element = {<SellerAddProduct/>} />
-        <Route path='orders' element = {<AdminOrders />} />
-        <Route path='profile' element = {<AdminUsers />} />
+        <Route path='orders' element = {<SellerProducts/>} />
+        <Route path='profile' element = {<SellerProfile />} />
       </Route>
 
       <Route path = '/admin' element = {<Admin/>} >
@@ -64,7 +65,7 @@ function App() {
         <Route path='products' element = {<AdminProducts />} />
         <Route path='orders' element = {<AdminOrders />} />
         <Route path='users' element = {<AdminUsers />} />
-        <Route path='sellers' element = {<SellerProfile />} />
+        <Route path='profile' element = {<SellerProfile />} />
       </Route>
       <Route path = '/seller/signup' element = {<SellerSignup/>} />
       <Route path = '/seller/login' element = {<SellerLogin/>} />
