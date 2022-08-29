@@ -11,6 +11,12 @@ MongoDB, Expressjs, React/Redux, Nodejs
    </a>
 </p>
 
+## Authors
+- [Sourav Saha](https://github.com/bracealround) (2017331095)
+- [Baizid Jilani](https://github.com/baizidjilani) (2017331095)
+
+# Run This Mern Repository To Your Local Device
+
 > MERN is a fullstack implementation in MongoDB, Expressjs, React/Redux, Nodejs.
 
 MERN stack is the idea of using Javascript/Node for fullstack web development.
