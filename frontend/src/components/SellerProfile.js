@@ -14,7 +14,7 @@ export default function Seller() {
 
   useEffect(()=>{
     fetchData();
-    // fetchBalance();
+    fetchBalance();
   }, [])
     
     const fetchData = async () => {

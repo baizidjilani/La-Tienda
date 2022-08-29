@@ -12,7 +12,6 @@ router.post("/openaccount/:id", async (req, res) => {
         secretNumber: CryptoJS.AES.encrypt(
             req.body.secretNumber, process.env.PASS_SEC
         ).toString(),
-        // expiryDate: req.body.expiryDate,
         balance: req.body.balance,
     });
 

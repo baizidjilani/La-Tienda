@@ -17,8 +17,11 @@ export default function Checkout() {
   const [secretNumber, setSecretNumber] = useState("");
   const [totalPrice, setTotalPrice] = useState("");
   const [userId, setuserId] = useState("");
+  const [supplierId, setsupplierId] = useState("");
   const [cartProducts, setCartProducts] = useState([]);
   const navigate = useNavigate();
+
+
   useEffect(() => {
     const auth = localStorage.getItem('user');
     const cartItems = JSON.parse(localStorage.getItem("cart"));
@@ -27,6 +30,7 @@ export default function Checkout() {
     } else {
       setuserId(JSON.parse(auth)._id);
       setCartProducts(cartItems);
+      setsupplierId(cartItems[0].supplierId);
       setTotalPrice(cartItems.reduce(
         (prevVal, currentVal) =>
           (prevVal += currentVal.inCart * currentVal.price),
@@ -35,17 +39,18 @@ export default function Checkout() {
     }
   }, []);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     let res = await fetch('http://localhost:7000/api/transaction/', {
       method: 'post',
-      body: JSON.stringify({ cardNumber, secretNumber, totalPrice }),
+      body: JSON.stringify({ cardNumber, secretNumber, totalPrice, supplierId }),
       headers: {
         'Content-Type': 'application/json'
       }
     });
-    console.log(res);
+    // console.log(res);
 
     let trans = await res.json();
     console.log(res.status);

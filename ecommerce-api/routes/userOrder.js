@@ -14,8 +14,6 @@ router.post("/:id", async (req, res) => {
         userId: req.params.id,
         name: req.body.name,
         email: req.body.email,
-        // cardNumber: req.body.cardNumber,
-        // secretNumber: req.body.secretNumber,
         mobileNo: req.body.mobileNo,
         cartProducts: req.body.cartProducts,
         totalPrice: req.body.totalPrice,

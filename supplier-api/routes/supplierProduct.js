@@ -1,17 +1,14 @@
 const multer = require('multer');
 const Product = require("../models/SupplierProduct");
-// const { verifyToken, verifyTokenAndAuthorization, verifyTokenAndSupplier, verifyTokenAndAdmin } = require("./verifyToken");
 
 const router = require("express").Router();
 
 
 const storage = multer.diskStorage({
-    //destination for files
     destination: function (req, file, callback) {
       callback(null, './uploads/');
     },
   
-    //add back the extension
     filename: function (req, file, callback) {
       callback(null, Date.now() + file.originalname);
     },
@@ -26,10 +23,11 @@ const storage = multer.diskStorage({
   
 
 //Add Product
-router.post("/", upload.single('img'), async (req, res) => {
+router.post("/:id", upload.single('img'), async (req, res) => {
     console.log(req.file);
 
     const newProduct = new Product({
+        suppplierId: req.params.id,
         title: req.body.title,
         desc: req.body.desc,
         img: req.file.filename,
@@ -37,7 +35,7 @@ router.post("/", upload.single('img'), async (req, res) => {
         size: req.body.size,
         color: req.body.color,
         price: req.body.price,
-        stock: req.body.stock
+        stock: req.body.stock,
     });
 
     try {

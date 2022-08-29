@@ -138,21 +138,6 @@ export default function SellerSignup() {
                           </div>
                         </div>
 
-                        {/* <div className="form-check d-flex justify-content-center mb-5">
-                          <input
-                            className="form-check-input me-2"
-                            type="checkbox"
-                            value=""
-                            id="form2Example3c"
-                          />
-                          <label
-                            className="form-check-label"
-                            htmlFor="form2Example3"
-                          >
-                            I agree all statements in{" "}
-                            <a href="#!">Terms of service</a>
-                          </label>
-                        </div> */}
 
                         <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <button
@@ -166,11 +151,11 @@ export default function SellerSignup() {
                       </form>
                     </div>
                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                      <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                    <img
+                        src="/images/7_unsplash.jpg"
                         alt="login form"
                         className="img-fluid"
-                        style={{ borderRadius: "1rem 0 0 1rem" }}
+                        style={{ borderRadius: "1rem 1rem 1rem 1rem",  "width": "50%", margin: "0 auto"}}
                       />
                     </div>
                   </div>
