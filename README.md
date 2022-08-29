@@ -91,8 +91,8 @@ $ node index.js // run it and connect to server and database
 Frontend | Bank API | Supllier API| Ecommerce API
 --- | ---| ---| ---
 bootstrap: "^5.2.0"| cors: "^2.8.5"| cors: "^2.8.5"| cors: "^2.8.5"
-material-react-table: "^0.40.2"| crypto-js: "^4.1.1"| crypto-js: "^4.1.1"
-react: "^18.2.0" | cors: ^2.8.1| cors: ^2.8.1
+material-react-table: "^0.40.2"| crypto-js: "^4.1.1"| crypto-js: "^4.1.1"| crypto-js: "^4.1.1"
+react: "^18.2.0" | cors: ^2.8.1| cors: ^2.8.1| cors: ^2.8.1
 react-bootstrap: "^2.5.0"| dotenv: "^16.0.1"| dotenv: "^16.0.1"| dotenv: "^16.0.1"
 react-dom: "^18.2.0" | express: "^4.18.1"| express: "^4.18.1"| express: "^4.18.1"
 react-router-dom: "^6.3.0"| mongoose: "^6.5.2"| mongoose: "^6.5.2"| mongoose: "^6.5.2"
