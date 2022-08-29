@@ -11,11 +11,11 @@ export default function Banners() {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src='./images/2_unsplash.jpg' className="d-block w-100" alt="..."  style={{'height': '75vh'}}/>
+                        <img src='./images/6_unsplash.jpg' className="d-block w-100" alt="..."  style={{'height': '75vh'}}/>
 
                     </div>
                     <div className="carousel-item">
-                        <img src='./images/6_unsplash.jpg' className="d-block w-100" alt="..."  style={{'height': '75vh'}}/>
+                        <img src='./images/2_unsplash.jpg' className="d-block w-100" alt="..."  style={{'height': '75vh'}}/>
                     </div>
                     <div className="carousel-item">
                         <img src='./images/4_unsplash.jpg' className="d-block w-100" alt="..." style={{'height': '75vh'}} />
