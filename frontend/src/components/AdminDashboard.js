@@ -9,15 +9,15 @@ export default function AdminDashboard() {
 
           <div className="card">
             <div className="card-inner">
-              <p className="text-primary">Total Products : 249</p>
+              <p className="text-primary">TOTAL PRODUCTS : 249</p>
               <span className="material-icons-outlined text-blue">inventory_2</span>
             </div>
             <div className="card-inner">
-              <p className="text-primary">TRANSACTION Amount : 249</p>
+              <p className="text-primary">TRANSACTION AMOUNT : 249</p>
             </div>
-            <div className="card-inner">
-              <p className="text-primary">Previous Month Transaction Amount : 249</p>
-            </div>
+            {/* <div className="card-inner">
+              <p className="text-primary">P Month Transaction Amount : 249</p>
+            </div> */}
           </div>
 
           <div className="card">

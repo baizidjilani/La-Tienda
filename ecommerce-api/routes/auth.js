@@ -45,7 +45,7 @@ router.post('/login', async (req, res) => {
         const inputPassword = req.body.password;
 
         if(OriginalPassword !== inputPassword){
-            res.status(401).json("Wrong Password");
+            res.status(403).json("Wrong Password");
             return;
         }
 
@@ -107,7 +107,7 @@ router.post('/supplier/login', async (req, res) => {
         const inputPassword = req.body.password;
 
         if(OriginalPassword !== inputPassword){
-            res.status(401).json("Wrong Password");
+            res.status(403).json("Wrong Password");
             return;
         }
 

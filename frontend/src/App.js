@@ -66,6 +66,7 @@ function App() {
         <Route path='orders' element = {<AdminOrders />} />
         <Route path='users' element = {<AdminUsers />} />
         <Route path='profile' element = {<SellerProfile />} />
+        <Route path='sellers' element = {<AdminSellers />} />
       </Route>
       <Route path = '/seller/signup' element = {<SellerSignup/>} />
       <Route path = '/seller/login' element = {<SellerLogin/>} />

@@ -28,48 +28,10 @@ router.post("/:id", async (req, res) => {
         res.status(500).json(err);
     }
 
-    // try {
-    //     const cardholder = await BankCardHolder.findOne({ cardNumber: newOrder.cardNumber });
-
-    //     if(cardholder === null ){
-    //         res.status(403).json("Invalid Card Number");
-    //         return;
-    //     }
-
-    //     const hashedSecretNumber = CryptoJS.AES.decrypt(cardholder.secretNumber, process.env.PASS_SEC);
-    //     const originalSecretNumber = hashedSecretNumber.toString(CryptoJS.enc.Utf8);
-    //     console.log(originalSecretNumber);
-
-    //     // console.log(newOrder.totalPrice);
-
-    //     if (newOrder.secretNumber == originalSecretNumber && newOrder.cardNumber == cardholder.cardNumber) {
-    //         const transactionId = await crypto.randomBytes(16).toString("hex");
-    //         console.log(cardholder.balance);
-    //         cardholder.balance = await cardholder.balance - newOrder.totalPrice;
-
-    //         if (cardholder.balance > 0) {
-    //             await cardholder.save();
-    //             const savedOrder = await newOrder.save();
-    //             console.log("Transaction successful")
-    //             res.status(201).json({ "Your transaction number": transactionId, savedOrder });
-    //         }
-    //         else{
-    //             res.status(403).json("You do not have enough balance to proceed the transaction");
-    //         }
-
-    //     }
-    //     else{
-    //         res.status(403).json("Invalid secret number")
-    //     }
-           
-    // } catch (err) {
-    //     console.log(err);
-    //     res.status(500).json(err);
-    // }
 });
 
 // Update Order
-router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
+router.put("/:id", async (req, res) => {
     try {
         const updatedOrder = await Order.findByIdAndUpdate(
             req.params.id,
@@ -86,7 +48,7 @@ router.put("/:id", verifyTokenAndAdmin, async (req, res) => {
 });
 
 //Delete Order
-router.delete(":/id", verifyTokenAndAdmin, async (req, res) => {
+router.delete(":/id", async (req, res) => {
     try {
         await Order.findByIdAndDelete(req.params.id);
         res.status(200).json("Order has been deleted");
@@ -96,7 +58,7 @@ router.delete(":/id", verifyTokenAndAdmin, async (req, res) => {
 });
 
 //Get User Orders
-router.get("/find/:userId", verifyTokenAndAuthorization, async (req, res) => {
+router.get("/find/:userId", async (req, res) => {
     try {
         const order = await Order.findOne({ userId: req.params.userId });
 

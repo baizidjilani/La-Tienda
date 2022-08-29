@@ -15,7 +15,7 @@ function Navbar2() {
     <>
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="/">Ecommercy</Navbar.Brand>
+        <Navbar.Brand href="/">La-Tienda</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
         {auth?<Nav className="me-auto">
