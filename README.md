@@ -15,6 +15,15 @@ MongoDB, Expressjs, React/Redux, Nodejs
 - [Sourav Saha](https://github.com/bracealround) (2017331095)
 - [Golam Jilani](https://github.com/baizidjilani) (2017331105)
 
+
+# Tech-Stack
+```terminal
+Frontend: React, HTML, CSS (Bootstrap, Material UI), Javascript
+Bankend: Node.js, Express.js
+Backend Testing Tool: Postman
+Database: MongoDB
+```
+
 # Features
 
 Three types of users: customers, seller and admin
@@ -83,7 +92,7 @@ supplier-api/
 
 ## Prerequisites
 - [MongoDB](https://www.mongodb.com/try/download/community)
-- [Node](https://nodejs.org/en/download/) ^10.0.0
+- [Node](https://nodejs.org/en/download/)
 - [npm](https://nodejs.org/en/download/package-manager/)
 
 Here, we need to run frontend, bank-api, ecommerce-api and supllier api concurrently in different terminal session to make them interchange information to each other
