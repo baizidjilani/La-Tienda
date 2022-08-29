@@ -15,6 +15,40 @@ MongoDB, Expressjs, React/Redux, Nodejs
 - [Sourav Saha](https://github.com/bracealround) (2017331095)
 - [Baizid Jilani](https://github.com/baizidjilani) (2017331105)
 
+# Features
+
+Three types of users: customers, seller and admin
+
+### User Functionalities:
+- Signup
+- Login
+- Set Up Bank Account
+- Visit Product Page
+- See Product Details
+- Add Products to Cart
+- Purchase Orders
+- See and Update his info. (See Bank Balance)
+- See recent ordered product history
+
+### Seller Functionalities:
+- Signup as a seller
+- Login as a seller
+- Set Up Bank Account
+- See his/her statistics (Including Bank Balance)
+- Add Products
+- See Profile
+- See Current Orders of his products
+
+### Admin Functionalities:
+- Observe basic ecommerce statistics (Inclusing Ecommerce Account Balance)
+- See Product List
+- See Order History
+- See User List
+- See Supplier List
+
+
+
+
 # Run This Mern Repository To Your Local Device
 
 > MERN is a fullstack implementation in MongoDB, Expressjs, React/Redux, Nodejs.
