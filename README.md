@@ -11,7 +11,7 @@ MongoDB, Expressjs, React/Redux, Nodejs
    </a>
 </p>
 
-## Authors
+# Authors
 - [Sourav Saha](https://github.com/bracealround) (2017331095)
 - [Baizid Jilani](https://github.com/baizidjilani) (2017331105)
 
