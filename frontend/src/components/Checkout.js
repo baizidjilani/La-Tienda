@@ -54,6 +54,10 @@ export default function Checkout() {
 
     let trans = await res.json();
     console.log(res.status);
+
+    let trans_id  = trans['Your transaction number'];
+    console.log(trans_id);
+    localStorage.setItem("trans_id",JSON.stringify(trans_id));
     // if (res.status === 403) {
     //   alert(trans);
     // }else if (res.status === 201) {
@@ -72,14 +76,17 @@ export default function Checkout() {
         }
       });
 
-      let order = await res.json();
 
-      console.log(order);
+    let order  = await res.json();
+    console.log(order);
+    localStorage.setItem("order",JSON.stringify(order));
+
+
       if (res.status === 201) {
         alert(`Your order has been placed.
-      Transaction id : ${order['Your transaction number']}`);
+      Transaction id : ${trans_id}`);
         localStorage.removeItem('cart');
-        navigate('/');
+        navigate('/orderconfirmation');
       }
     }
   }
