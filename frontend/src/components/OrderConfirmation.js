@@ -4,22 +4,38 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function OrderConfirmation() {
 
-  const [tranId, setTranId] = useState("");
+
+
   const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [mobileNo, setMobileNo] = useState("");
-  const [email,setEmail] = useState("")
+  const [address, setAddress] = useState("");
+  const [cardNumber, setCardNumber] = useState("");
+  const [secretNumber, setSecretNumber] = useState("");
+  const [totalPrice, setTotalPrice] = useState("");
+  const [userId, setuserId] = useState("");
+  const [supplierId, setsupplierId] = useState("");
+  const [cartProducts, setCartProducts] = useState([]);
+  const [tranId, setTranId] = useState("");
   const navigate  = useNavigate()
   useEffect(() => {
       const order = JSON.parse(localStorage.getItem("order"));
       const trans_id = JSON.parse(localStorage.getItem("trans_id"));
       setTranId(trans_id);
+      setuserId(order.userId);
+      setAddress(order.address);
+      setsupplierId(order.supplierId);
+      setCardNumber(order.cardNumber);
+      setSecretNumber(order.secretNumber);
+      setTotalPrice(order.totalPrice);
+      setCartProducts(order.setCartProducts);
       setName(order.name);
       setMobileNo(order.mobileNo);
       setEmail(order.email);
       alert("Your Order Has Been Placed Successfully!!!")   
   });
 
-  const Navigate = ()=>{
+  const PostOrder = async(e)=>{
     navigate('/')
   }
   return (
@@ -64,7 +80,7 @@ export default function OrderConfirmation() {
                           <button
                             type="button"
                             className="btn btn-primary btn-lg"
-                            onClick={Navigate}
+                            onClick={PostOrder}
                           >
                             <h3>Back To Home Page</h3>
                           </button>

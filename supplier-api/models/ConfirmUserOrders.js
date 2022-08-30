@@ -9,7 +9,8 @@ const UserOrderSchema = new mongoose.Schema(
         cartProducts: {type: Object, required: true},
         totalPrice: { type: Number, required: true},
         address: { type: Object, required: true},
-        status: {type: String, default: "pending"} 
+        status: {type: String, default: "pending"}, 
+        transactionId: {type:String, required: true}
     },
     {timestamps: true}
 );

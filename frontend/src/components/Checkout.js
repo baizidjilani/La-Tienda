@@ -1,13 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-
-// You need to do the following thing:
-// At first give a get request to get the users balance. 
-// If the balance is not sufficient, then show a alert.
-// If it is sufficient the make request for purchase.
-// Also update the user, ecommerce and seller bank balance.
-
 export default function Checkout() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -50,7 +43,6 @@ export default function Checkout() {
         'Content-Type': 'application/json'
       }
     });
-    // console.log(res);
 
     let trans = await res.json();
     console.log(res.status);
@@ -58,14 +50,7 @@ export default function Checkout() {
     let trans_id  = trans['Your transaction number'];
     console.log(trans_id);
     localStorage.setItem("trans_id",JSON.stringify(trans_id));
-    // if (res.status === 403) {
-    //   alert(trans);
-    // }else if (res.status === 201) {
-    //   alert(`Your order has been placed.
-    //   Transaction id : ${order['Your transaction number']}`);
-    //   localStorage.removeItem('cart');
-    //   navigate('/');
-    // }
+
 
     if (res.status === 201) {
       let res = await fetch(`http://localhost:5000/api/userorders/${userId}`, {
@@ -80,6 +65,17 @@ export default function Checkout() {
     let order  = await res.json();
     console.log(order);
     localStorage.setItem("order",JSON.stringify(order));
+
+
+    let res_order_post = await fetch('http://localhost:4000/api/confirm/order/:id', {
+      method: 'post',
+      body: JSON.stringify({ cardNumber, secretNumber, totalPrice, supplierId }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+    let order_post  = await res_order_post.json();
+    console.log(order_post)
 
 
       if (res.status === 201) {

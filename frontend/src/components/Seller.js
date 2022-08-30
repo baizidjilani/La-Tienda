@@ -25,7 +25,7 @@ export default function Seller() {
                 <span className="material-icons-outlined">inventory_2</span>Add Products
               </li>
             </Link>
-            <Link to='/seller/products'>
+            <Link to='/seller/orders'>
               <li className="sidebar-list-item">
                 <span className="material-icons-outlined">add_shopping_cart</span> Orders
               </li>

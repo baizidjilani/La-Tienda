@@ -14,18 +14,19 @@ export default function Seller() {
 
   useEffect(()=>{
     fetchData();
-    fetchBalance();
   }, [])
     
     const fetchData = async () => {
       const items = JSON.parse(localStorage.getItem('user'));
       const res = await fetch(`http://localhost:5000/api/suppliers/find/${items._id}`);
+      // console.log(items._id)
       const data = await res.json();
       // console.log(data)
       setName(data.name);
       setUserName(data.username);
       setShopName(data.shopname);
       setEmail(data.email);
+      fetchBalance();
     };
     const fetchBalance = async () => {
         const items = JSON.parse(localStorage.getItem('user'));

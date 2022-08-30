@@ -1,16 +1,15 @@
+
 import { useEffect, useState, useMemo } from "react";
 import MaterialReactTable from 'material-react-table';
 
-
-export default function AdminProducts() {
+export default function SellerProducts() {
     const [users, setUsers] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
         fetchData();
     }, []);
     const fetchData = async () => {
-        const items = JSON.parse(localStorage.getItem('user'));
-        const res = await fetch(`http://localhost:4000/api/products/find/${items.id}`);
+        const res = await fetch('http://localhost:5000/api/userorders/');
         const data = await res.json();
         setUsers(data);
         setIsLoading(false);
@@ -18,27 +17,27 @@ export default function AdminProducts() {
     const columns = useMemo(
         () => [
             {
-                accessorKey: '_id', //access nested data with dot notation
-                header: 'Product ID',
+                accessorKey: 'userId', //access nested data with dot notation
+                header: 'ID',
             },
             {
-                accessorKey: 'title',
-                header: 'Product Name',
+                accessorKey: 'amount',
+                header: 'Amount',
             },
             {
-                accessorKey: 'price', //normal accessorKey
-                header: 'Price',
+                accessorKey: 'address', //normal accessorKey
+                header: 'Address',
             },
             {
-                accessorKey: 'createdAt', //normal accessorKey
-                header: 'Created',
+                accessorKey: 'status', //normal accessorKey
+                header: 'Status',
             }
         ],
         [],
     );
-    return (
-        <div className="mt-5 mx-5">
-            {
+    return(
+        <>
+        {
                 isLoading ?
                     <div className="spinner-border text-warning m-5" role="status">
                         <span className="visually-hidden">Loading...</span>
@@ -48,8 +47,7 @@ export default function AdminProducts() {
                             columns={columns}
                             data={users}
                         />
-            }
-
-        </div>
+        }
+        </>
     )
 }
