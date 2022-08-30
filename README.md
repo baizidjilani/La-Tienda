@@ -11,10 +11,6 @@ MongoDB, Expressjs, React/Redux, Nodejs
    </a>
 </p>
 
-# Authors
-- [Sourav Saha](https://github.com/bracealround) (2017331095)
-- [Golam Jilani](https://github.com/baizidjilani) (2017331105)
-
 
 # Tech-Stack
 ```terminal
@@ -55,7 +51,11 @@ Three types of users: customers, seller and admin
 - See User List
 - See Supplier List
 
-
+### Bank API Functionalities:
+- Create bank account
+- Check balance
+- Verify transaction: check valid card number, secret number, and sufficient balance. 
+- adjust the balance of users, sellers and ecommerce admin
 
 
 # Run This Mern Repository To Your Local Device
@@ -142,3 +142,8 @@ react-router-dom: "^6.3.0"| mongoose: "^6.5.2"| mongoose: "^6.5.2"| mongoose: "^
 react-scripts: "5.0.1"| multer: "^1.4.5-lts.1"| multer: "^1.4.5-lts.1"| multer: "^1.4.5-lts.1"
 react-use-cart: "^1.13.0"| nodemon: "^2.0.19"| nodemon: "^2.0.19"| nodemon: "^2.0.19"
 web-vitals: "^2.1.4"|||
+
+
+# Authors
+- [Sourav Saha](https://github.com/bracealround) (2017331095)
+- [Golam Jilani](https://github.com/baizidjilani) (2017331105)
