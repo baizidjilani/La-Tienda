@@ -129,6 +129,32 @@ $ npm i       // npm install packages
 $ node index.js // run it and connect to server and database
 ```
 
+# Some Given Credentials
+
+## User Credentials
+```terminal
+User Name: user95105
+Password: 95105
+Bank Card Number: 95105
+Bank Secret Number: 95105
+```
+
+## Supplier Credentials
+```terminal
+User Name: seller3
+Password: user123
+Bank Card Number: 1234567890 
+Bank Secret Number: 1234
+```
+
+## Admin Credentials
+```terminal
+User Name: user8888
+Password: 8888
+Bank Card Number: 8888 
+Bank Secret Number: 8888 
+```
+
 
 # Dependencies(tech-stacks)
 Frontend | Bank API | Supllier API| Ecommerce API
@@ -142,6 +168,46 @@ react-router-dom: "^6.3.0"| mongoose: "^6.5.2"| mongoose: "^6.5.2"| mongoose: "^
 react-scripts: "5.0.1"| multer: "^1.4.5-lts.1"| multer: "^1.4.5-lts.1"| multer: "^1.4.5-lts.1"
 react-use-cart: "^1.13.0"| nodemon: "^2.0.19"| nodemon: "^2.0.19"| nodemon: "^2.0.19"
 web-vitals: "^2.1.4"|||
+
+
+## Screenshots
+
+<p float="left">
+  <img src="img/User_Signup.PNG" width="250" />
+  <img src="img/User_LogIn.PNG" width="250" />
+  <img src="img/OpenBankAccount.PNG" width="250" />
+</p>
+<p float="left">
+  <img src="img/Home_1.PNG" width="250" />
+  <img src="img/Home_2.PNG" width="250" />
+  <img src="img/Home_3.PNG" width="250" />
+</p>
+<p float="left">
+  <img src="img/Product_Details.PNG" width="250" />
+  <img src="img/Cart.PNG" width="250" />
+  <img src="img/Checkout.PNG" width="250" />
+</p>
+<p float="left">
+ <img src="img/AdminLogin.PNG" width="250" />
+  <img src="img/Admin_Dashboard.PNG" width="250" />
+  <img src="img/Admin_Orders.PNG" width="250" />
+  
+</p>
+<p float="left">
+  <img src="img/Admin_Products.PNG" width="250" />
+  <img src="img/Admin_Sellers.PNG" width="250" />
+  <img src="img/Admin_Users.PNG" width="250" />
+</p>
+<p float="left">
+  <img src="img/Seller_Signup.PNG" width="250" />
+  <img src="img/Seller_Login.PNG" width="250" />
+  <img src="img/Seller_Dashboard.PNG" width="250" />
+</p>
+<p float="left">
+  <img src="img/Seller_Add_Products.PNG" width="250" />
+  <img src="img/Seller_Orders.PNG" width="250" />
+  <img src="img/Seller_Profile.PNG" width="250" />
+</p>
 
 
 # Authors
