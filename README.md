@@ -144,6 +144,46 @@ react-use-cart: "^1.13.0"| nodemon: "^2.0.19"| nodemon: "^2.0.19"| nodemon: "^2.
 web-vitals: "^2.1.4"|||
 
 
+## Screenshots
+
+<p float="left">
+  <img src="img/User_Signup.PNG" width="250" />
+  <img src="img/User_LogIn.PNG" width="250" />
+  <img src="img/OpenBankAccount.PNG" width="250" />
+</p>
+<p float="left">
+  <img src="img/Home_1.PNG" width="250" />
+  <img src="img/Home_2.PNG" width="250" />
+  <img src="img/Home_3.PNG" width="250" />
+</p>
+<p float="left">
+  <img src="img/Product_Details.PNG" width="250" />
+  <img src="img/Cart.PNG" width="250" />
+  <img src="img/Checkout.PNG" width="250" />
+</p>
+<p float="left">
+ <img src="img/AdminLogin.PNG" width="250" />
+  <img src="img/Admin_Dashboard.PNG" width="250" />
+  <img src="img/Admin_Orders.PNG" width="250" />
+  
+</p>
+<p float="left">
+  <img src="img/Admin_Products.PNG" width="250" />
+  <img src="img/Admin_Sellers.PNG" width="250" />
+  <img src="img/Admin_Users.PNG" width="250" />
+</p>
+<p float="left">
+  <img src="img/Seller_Signup.PNG" width="250" />
+  <img src="img/Seller_Login.PNG" width="250" />
+  <img src="img/Seller_Dashboard.PNG" width="250" />
+</p>
+<p float="left">
+  <img src="img/Seller_Add_Products.PNG" width="250" />
+  <img src="img/Seller_Orders.PNG" width="250" />
+  <img src="img/Seller_Profile.PNG" width="250" />
+</p>
+
+
 # Authors
 - [Sourav Saha](https://github.com/bracealround) (2017331095)
 - [Golam Jilani](https://github.com/baizidjilani) (2017331105)
