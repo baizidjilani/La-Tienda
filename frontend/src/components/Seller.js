@@ -7,7 +7,6 @@ export default function Seller() {
   const auth = localStorage.getItem('user');
   const navigate = useNavigate();
   useEffect(() => {
-    navigate('dashboard')
 }, []);
   return (
     <div>

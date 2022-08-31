@@ -16,12 +16,12 @@ export default function SellerDashboard() {
         const data_products = await res_products.json();
         setProducts(data_products);
 
-        const items = JSON.parse(localStorage.getItem('user'));
-        console.log(items._id)
-        const res_bank = await fetch(`http://localhost:7000/api/userbalance/${items._id}`);
-        const data_bank = await res_bank.json();
-        console.log(data_bank);
-        setBalance(data_bank);
+        // const items = JSON.parse(localStorage.getItem('user'));
+        // console.log(items._id)
+        // const res_bank = await fetch(`http://localhost:7000/api/userbalance/${items._id}`);
+        // const data_bank = await res_bank.json();
+        // console.log(data_bank);
+        // setBalance(data_bank);
 
     };
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-export default function SellerDashboard() {
+export default function AdminDashboard() {
   const [orders, setOrders] = useState([]);
   const [products, setProducts] = useState([]);
   const [balance,setBalance] = useState("");

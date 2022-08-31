@@ -16,22 +16,28 @@ export default function UserProfile() {
     fetchData();
     fetchBalance();
   }, [])
-    
-    const fetchData = async () => {
-        console.log(params)
-        const res = await fetch(`http://localhost:5000/api/users/find/${params.id}`);
-        const data = await res.json();
-        console.log(data)
-        setName(data.name);
-        setUserName(data.username);
-        setEmail(data.email);
-    };
-    const fetchBalance = async () => {
-        const res_bank = await fetch(`http://localhost:7000/api/userbalance/${params.id}`);
-        const data_bank = await res_bank.json();
-        console.log(data_bank);
-        setBalance(data_bank);
-    };
+
+  
+  const fetchData = async () => {
+    const items = JSON.parse(localStorage.getItem('user'));
+    const res = await fetch(`http://localhost:5000/api/suppliers/find/${items._id}`);
+    // console.log(items._id)
+    const data = await res.json();
+    // console.log(data)
+    setName(data.name);
+    setUserName(data.username);
+    setEmail(data.email);
+    fetchBalance();
+  };
+
+  const fetchBalance = async () => {
+    const items = JSON.parse(localStorage.getItem('user'));
+    console.log(items._id)
+    const res_bank = await fetch(`http://localhost:7000/api/userbalance/${items._id}`);
+    const data_bank = await res_bank.json();
+    console.log(data_bank);
+    setBalance(data_bank);
+};
   return (
     <div>
       <section
