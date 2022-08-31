@@ -69,7 +69,7 @@ export default function Checkout() {
 
     let res_order_post = await fetch('http://localhost:4000/api/confirm/order/:id', {
       method: 'post',
-      body: JSON.stringify({ cardNumber, secretNumber, totalPrice, supplierId }),
+      body: JSON.stringify({ name, email, mobileNo, address, cartProducts, totalPrice, supplierId, trans_id }),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -78,7 +78,7 @@ export default function Checkout() {
     console.log(order_post)
 
 
-      if (res.status === 201) {
+      if (res_order_post.status === 200) {
         alert(`Your order has been placed.
       Transaction id : ${trans_id}`);
         localStorage.removeItem('cart');
