@@ -54,7 +54,7 @@ export default function Cart() {
   return (
     <div className="container-fluid py-3">
       <div className="row justify-content-center">
-        <h4 className="text-center py-3 text-decoration-underline">My Cart</h4>
+        <h4 className="text-center py-3 text-shadow-7">My Cart</h4>
         <div className="col-md-8">
           <div>
             <table className="table table-light m-0">
@@ -64,10 +64,10 @@ export default function Cart() {
                     <tr key={index} className="align-middle">
                       <td>
                         <img
-                          src={`http://localhost:5000/uploads/${item.img}`}
+                          src={`http://localhost:4000/uploads/${item.img}`}
                           className="img-cart"
                           alt={item.title}
-                          style={{ width: "200px" }}
+                          style={{ width: "150px" }}
                         />
                       </td>
                       <td>{item.title}</td>

@@ -51,6 +51,10 @@ export default function ProductDescription() {
                         <hr />
                         <p className="display-6">&#2547; {description.price}</p>
                         <button type="button" className="btn btn-outline-dark w-100" onClick={() => addItem(description)}>Add to cart</button>
+                        <h5 className="mt-5">Dial Diameter: {description.size}</h5>
+                        <h5 className="mt-3">Color: {description.color}</h5>
+                        <h5 className="mt-3">In Stock: {description.stock}</h5>
+                        <p className="mt-3">Categories: {description.categories}</p>
                     </div>
                 </div>
             </div>
