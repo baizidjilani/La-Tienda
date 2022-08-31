@@ -129,6 +129,32 @@ $ npm i       // npm install packages
 $ node index.js // run it and connect to server and database
 ```
 
+# Some Given Credentials
+
+## User Credentials
+```terminal
+User Name: user95105
+Password: 95105
+Bank Card Number: 95105
+Bank Secret Number: 95105
+```
+
+## Supplier Credentials
+```terminal
+User Name: seller3
+Password: user123
+Bank Card Number: 1234567890 
+Bank Secret Number: 1234
+```
+
+## Admin Credentials
+```terminal
+User Name: user8888
+Password: 8888
+Bank Card Number: 8888 
+Bank Secret Number: 8888 
+```
+
 
 # Dependencies(tech-stacks)
 Frontend | Bank API | Supllier API| Ecommerce API
