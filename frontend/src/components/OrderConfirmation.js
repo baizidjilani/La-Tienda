@@ -54,10 +54,10 @@ export default function OrderConfirmation() {
                 <div className="card-body p-md-5">
                   <div className="row">
                     <div className="col-md-6">
-                    <h1>Order Summery</h1>
-                      <form>
+                    <h2 className="text-uppercase text-center mb-5">Order Summery</h2>
+                      <form className="text-start">
                         <div className="form-outline mb-4">
-                          <h5 className="text-center">
+                          <h5 className="text-left">
                             Name: {name} 
                           </h5>
                         </div>

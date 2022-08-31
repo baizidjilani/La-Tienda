@@ -101,7 +101,7 @@ Here, we need to run frontend, bank-api, ecommerce-api and supllier api concurre
 ```terminal
 $ cd frontend   // go to frontend folder
 $ npm i       // npm install packages
-$ npm start // this will run the files in docs, this behavior is exactly the same how gh-pages will run your static site
+$ npm start // run the frontend side
 ```
 
 
