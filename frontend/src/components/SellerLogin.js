@@ -28,7 +28,7 @@ export default function Login() {
   }
   return (
     <div>
-      <section className="vh-100" style={{ backgroundColor: "#9A616D" }}>
+      <section className="vh-100" style={{ backgroundColor: "#ece4e4"}}>
   <div className="container py-5 h-100">
     <div className="row d-flex justify-content-center align-items-center h-100">
       <div className="col col-xl-10">
@@ -70,7 +70,7 @@ export default function Login() {
                   <div className="pt-1 mb-4">
                     
                     <button 
-                      className="btn btn-dark btn-lg btn-block" 
+                      className="btn btn-dark btn-lg btn-block w-100" 
                       type="button" 
                       onClick={handleLogin}>
                         Login
