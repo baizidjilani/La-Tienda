@@ -22,13 +22,13 @@ function Navbar2() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/cart">Cart</Nav.Link>
             <Nav.Link href={`/profile/${JSON.parse(auth)._id}`}>Profile</Nav.Link>
-            <Nav.Link href="/Signup" onClick={logout}>Logout ({JSON.parse(auth).username})</Nav.Link>
+            <Nav.Link href="/logout" onClick={logout}>Logout ({JSON.parse(auth).username})</Nav.Link>
             </Nav>:
             <Nav className="me-auto">
             <Nav.Link href="/Signup">Signup</Nav.Link>
             <Nav.Link href="/Login">Login</Nav.Link>
             <Nav.Link href="/Seller/Login">Sell on Ecommercy</Nav.Link>
-            <Nav.Link href="/admin">Admin</Nav.Link>
+            <Nav.Link href="/Admin/Login">Admin</Nav.Link>
             </Nav>}
         </Navbar.Collapse>
       </Container>

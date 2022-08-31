@@ -81,16 +81,9 @@ export default function SellerAddProduct() {
                       </div>
 
                       <div className="form-outline mb-4">
-                        <input
-                          type="text"
-                          id="form3Example1cg"
-                          className="form-control form-control-lg"
-                          value={img} 
-                          onChange = {(e) => setImage(e.target.value)}
-                        />
                         <div class="mb-3">
+                            <input class="form-control" type="file" id="formFile" onChange={(e) => setImage(e.target.value)}/>
                             <label htmlFor="formFile" class="form-label">Input File</label>
-                            <input class="form-control" type="file" id="formFile"/>
                         </div>
                         {error && !img && <span className="invalid_block">Enter Valid Image </span>}
                       </div>
@@ -154,7 +147,7 @@ export default function SellerAddProduct() {
                       <div className="d-flex justify-content-center">
                         <button
                           type="button"
-                          className="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
+                          className="btn btn-primary btn-lg"
                           onClick={AddProduct}
                         >
                           Submit

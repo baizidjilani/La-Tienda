@@ -113,7 +113,7 @@ export default function Checkout() {
                           <input type="number" required className="form-control" placeholder="Card number" onChange={(e) => setCardNumber(e.target.value)} />
                         </div>
                         <div className="mb-3">
-                          <input type="number" required className="form-control" placeholder="Secret number" onChange={(e) => setSecretNumber(e.target.value)} />
+                          <input type="password" required className="form-control" placeholder="Secret number" onChange={(e) => setSecretNumber(e.target.value)} />
                         </div>
                         <button type="submit" className="btn btn-outline-danger w-100">Confirm Order</button>
                       </form>
