@@ -50,7 +50,6 @@ export default function SellerDashboard() {
           <div className="card">
             <div className="card-inner">
               <h4 className="text-primary">Seller Bank Balance: {balance}</h4>
-              <span className="material-icons-outlined text-orange">add_shopping_cart</span>
             </div>
           </div>
 

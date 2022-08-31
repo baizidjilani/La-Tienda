@@ -19,4 +19,15 @@ router.post("/:id", async (req, res) => {
     }
 });
 
+// Get All confirmed user Orders
+router.get("/", async (req, res) => {
+    try {
+        const orders = await ConfirmUserOrders.find();
+
+        res.status(200).json(orders);
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
 module.exports = router;

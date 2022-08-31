@@ -50,7 +50,6 @@ export default function AdminDashboard() {
           <div className="card">
             <div className="card-inner">
               <h4 className="text-primary">Admin Bank Balance: {balance}</h4>
-              <span className="material-icons-outlined text-orange">add_shopping_cart</span>
             </div>
           </div>
 

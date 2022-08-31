@@ -9,7 +9,7 @@ export default function SellerProducts() {
         fetchData();
     }, []);
     const fetchData = async () => {
-        const res = await fetch('http://localhost:5000/api/userorders/');
+        const res = await fetch('http://localhost:4000/api/confirm/order/');
         const data = await res.json();
         setUsers(data);
         setIsLoading(false);
@@ -17,8 +17,12 @@ export default function SellerProducts() {
     const columns = useMemo(
         () => [
             {
-                accessorKey: 'userId', //access nested data with dot notation
-                header: 'ID',
+                accessorKey: 'name', //access nested data with dot notation
+                header: 'Customer Name',
+            },
+            {
+                accessorKey: 'cartProducts.title',
+                header: 'Product Title',
             },
             {
                 accessorKey: 'totalPrice',
@@ -29,8 +33,8 @@ export default function SellerProducts() {
                 header: 'Address',
             },
             {
-                accessorKey: 'status', //normal accessorKey
-                header: 'Status',
+                accessorKey: 'transactionId', //normal accessorKey
+                header: 'Transaction ID',
             }
         ],
         [],

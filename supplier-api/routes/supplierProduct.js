@@ -27,7 +27,6 @@ router.post("/:id", upload.single('img'), async (req, res) => {
     console.log(req.file);
 
     const newProduct = new Product({
-        suppplierId: req.params.id,
         title: req.body.title,
         desc: req.body.desc,
         img: req.file.filename,
@@ -36,6 +35,7 @@ router.post("/:id", upload.single('img'), async (req, res) => {
         color: req.body.color,
         price: req.body.price,
         stock: req.body.stock,
+        suppplierId: req.params.id
     });
 
     try {
