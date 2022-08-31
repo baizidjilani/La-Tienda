@@ -29,6 +29,7 @@ import SellerProducts from './components/SellerProducts'
 import Products from './components/Products'
 import ProductDescription from './components/ProductDescription'
 import Cart from './components/Cart';
+import AdminLogin from './components/AdminLogin'
 
 function App() {
   return (
@@ -49,7 +50,7 @@ function App() {
       <Route path = '/openbankaccount' element = {<OpenBankAccount/>} />
       <Route path = '/login' element = {<Login/>} />
       <Route path = '/cart' element = {<Cart/>} />
-      
+      <Route path = '/admin/Login' element = {<AdminLogin/>} />
       {/* <Route path='seller/profile/:id' element = {<SellerProfile />} />
       <Route path='seller/addproducts' element = {<SellerAddProduct/>} /> */}
 
@@ -70,7 +71,7 @@ function App() {
       </Route>
       <Route path = '/seller/signup' element = {<SellerSignup/>} />
       <Route path = '/seller/login' element = {<SellerLogin/>} />
-      <Route path = '/seller' element = {<Seller/>} >
+      <Route path = '/logout' element = {<Logout/>} >
         <Route path='dashboard' element = {<AdminDashboard />} />
         
         

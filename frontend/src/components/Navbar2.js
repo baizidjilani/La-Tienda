@@ -28,7 +28,7 @@ function Navbar2() {
                 <Nav.Link href="/Signup">Signup</Nav.Link>
                 <Nav.Link style={{"paddingLeft": "15px"}} href="/Login">Login</Nav.Link>
                 <Nav.Link style={{"paddingLeft": "15px"}} href="/Seller/Login">Sell on La-Tienda</Nav.Link>
-                <Nav.Link style={{"paddingLeft": "15px"}} href="/admin">Admin</Nav.Link>
+                <Nav.Link style={{"paddingLeft": "15px"}} href="/Admin/Login">Admin</Nav.Link>
               </Nav>}
           </Navbar.Collapse>
         </Container>

@@ -21,7 +21,7 @@ export default function SellerProducts() {
                 header: 'ID',
             },
             {
-                accessorKey: 'amount',
+                accessorKey: 'totalPrice',
                 header: 'Amount',
             },
             {
