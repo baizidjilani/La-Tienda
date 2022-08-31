@@ -47,9 +47,9 @@ export default function Checkout() {
     let trans = await res.json();
     console.log(res.status);
 
-    let trans_id  = trans['Your transaction number'];
-    console.log(trans_id);
-    localStorage.setItem("trans_id",JSON.stringify(trans_id));
+    let transactionId  = trans['Your transaction number'];
+    console.log(transactionId);
+    localStorage.setItem("trans_id",JSON.stringify(transactionId));
 
 
     if (res.status === 201) {
@@ -69,7 +69,7 @@ export default function Checkout() {
 
     let res_order_post = await fetch('http://localhost:4000/api/confirm/order/:id', {
       method: 'post',
-      body: JSON.stringify({ name, email, mobileNo, address, cartProducts, totalPrice, supplierId, trans_id }),
+      body: JSON.stringify({ name, email, mobileNo, address, cartProducts, totalPrice, supplierId, transactionId }),
       headers: {
         'Content-Type': 'application/json'
       }
@@ -80,7 +80,7 @@ export default function Checkout() {
 
       if (res_order_post.status === 200) {
         alert(`Your order has been placed.
-      Transaction id : ${trans_id}`);
+      Transaction id : ${transactionId}`);
         localStorage.removeItem('cart');
         navigate('/orderconfirmation');
       }

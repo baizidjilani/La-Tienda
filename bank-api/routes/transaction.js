@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
 
     try {
         const cardholder = await BankCardHolder.findOne({ cardNumber });
-        const supplier  =  await BankCardHolder.findOne({ userId: "63094e93786cbd996f56fe97" });
+        const supplier  =  await BankCardHolder.findOne({ userId: supplierId });
         const admin = await BankCardHolder.findOne({ userId })
 
         if (cardholder === null || supplier === null || admin === null) {
